@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>code garden ☘️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#FDFAF5;
+  --warm:#FFFFFF;
+  --sage:#7BAE7F;
+  --sage-l:#C5DABC;
+  --sage-d:#3D5A40;
+  --lav:#C4A7CB;
+  --lav-l:#EDE6F2;
+  --peach:#E8A87C;
+  --rose:#D49898;
+  --br:#3A3228;
+  --br-m:#7A6E63;
+  --br-l:#C4B8AA;
+  --side:#F0EAE0;
+  --bd:rgba(58,50,40,0.1);
+}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--br);min-height:100vh;overflow-x:hidden;}
+
+/* ── BANNER ── */
+.banner{width:100%;height:210px;background:linear-gradient(160deg,#7FA882 0%,#98BC9A 30%,#B8D1AA 65%,#D2E3BE 100%);position:relative;overflow:hidden;}
+/* Hills */
+.hill{position:absolute;bottom:0;border-radius:50% 50% 0 0;}
+.h1{width:400px;height:80px;left:-60px;background:rgba(255,255,255,0.18);}
+.h2{width:320px;height:65px;left:250px;background:rgba(255,255,255,0.14);}
+.h3{width:500px;height:90px;right:-80px;background:rgba(255,255,255,0.18);}
+/* Trees */
+.tree{position:absolute;bottom:8px;}
+.tree-trunk{width:10px;background:#5A3E2A;margin:0 auto;border-radius:2px;}
+.tree-top{border-radius:50% 50% 48% 48%;margin:0 auto;}
+.t1{left:40px;} .t1 .tree-top{width:44px;height:60px;background:#4A7A4D;}
+.t1 .tree-trunk{height:20px;}
+.t2{left:80px;} .t2 .tree-top{width:34px;height:48px;background:#568059;}
+.t2 .tree-trunk{height:14px;}
+.t3{left:180px;} .t3 .tree-top{width:50px;height:70px;background:#3E6B42;}
+.t3 .tree-trunk{height:22px;}
+.t4{right:60px;} .t4 .tree-top{width:46px;height:64px;background:#4A7A4D;}
+.t4 .tree-trunk{height:18px;}
+.t5{right:110px;} .t5 .tree-top{width:36px;height:52px;background:#527A55;}
+.t5 .tree-trunk{height:14px;}
+.t6{right:220px;} .t6 .tree-top{width:52px;height:72px;background:#3E6B42;}
+.t6 .tree-trunk{height:24px;}
+/* Mushrooms */
+.shroom{position:absolute;bottom:10px;}
+.shroom-cap{border-radius:50% 50% 0 0;margin:0 auto;}
+.shroom-stem{background:#F0E0D0;margin:0 auto;border-radius:2px;}
+.s1{left:140px;} .s1 .shroom-cap{width:18px;height:12px;background:#C04040;} .s1 .shroom-stem{width:6px;height:8px;}
+.s2{left:155px;} .s2 .shroom-cap{width:12px;height:8px;background:#C04040;} .s2 .shroom-stem{width:4px;height:6px;}
+/* Flowers */
+.flower{position:absolute;font-size:16px;}
+.f1{bottom:12px;left:310px;} .f2{bottom:8px;left:340px;} .f3{bottom:14px;right:320px;}
+/* Stars */
+.star{position:absolute;color:rgba(255,255,255,0.6);font-size:14px;}
+.st1{top:20px;left:20%;} .st2{top:35px;right:28%;} .st3{top:15px;right:15%;}
+/* Fade at bottom */
+.banner::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(transparent,var(--cream));}
+
+/* ── PAGE META ── */
+.page-wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
+.page-meta{padding:0 40px;margin-top:-28px;position:relative;z-index:10;max-width:1140px;margin-left:auto;margin-right:auto;}
+.page-icon{width:64px;height:64px;font-size:38px;display:flex;align-items:center;justify-content:center;background:var(--warm);border-radius:14px;border:1.5px solid var(--bd);box-shadow:0 3px 14px rgba(0,0,0,0.07);margin-bottom:14px;}
+.page-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;color:var(--br);letter-spacing:-0.5px;margin-bottom:6px;}
+.page-desc{font-size:13px;color:var(--br-m);font-weight:400;margin-bottom:6px;}
+.page-tags{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.tag{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+.tag-sage{background:#DDF0DA;color:#3D5A40;}
+.tag-lav{background:#EDE6F2;color:#6A4E82;}
+.tag-peach{background:#FAE9D8;color:#8B4A1E;}
+.tag-rose{background:#F5E3E3;color:#8B3A3A;}
+
+/* ── MAIN LAYOUT ── */
+.main-layout{display:grid;grid-template-columns:234px 1fr;gap:24px;max-width:1140px;margin:24px auto 60px;padding:0 40px;}
+
+/* ── SIDEBAR ── */
+.sidebar{background:var(--side);border-radius:18px;padding:20px;height:fit-content;position:sticky;top:24px;border:1px solid var(--bd);}
+.side-section{margin-bottom:20px;}
+.side-section:last-child{margin-bottom:0;}
+.side-label{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--br-l);margin-bottom:10px;}
+.side-link{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:10px;font-size:13px;font-weight:500;color:var(--br-m);cursor:pointer;transition:all 0.15s;text-decoration:none;}
+.side-link:hover,.side-link.active{background:rgba(123,174,127,0.18);color:var(--sage-d);}
+.side-link-icon{font-size:15px;width:20px;text-align:center;}
+.stat-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--br);}
+.stat-lbl{font-size:11px;color:var(--br-m);}
+.streak-bar{display:flex;gap:3px;margin-top:6px;}
+.streak-dot{width:10px;height:10px;border-radius:50%;background:var(--bd);}
+.streak-dot.done{background:var(--sage);}
+.quote-box{background:rgba(123,174,127,0.12);border-left:3px solid var(--sage);border-radius:0 10px 10px 0;padding:10px 12px;font-size:12px;line-height:1.6;color:var(--br-m);font-style:italic;}
+.ext-link{display:block;background:var(--warm);border:1px solid var(--bd);border-radius:10px;padding:9px 12px;text-decoration:none;font-size:12px;font-weight:600;color:var(--br);margin-bottom:7px;transition:all 0.15s;display:flex;align-items:center;gap:8px;}
+.ext-link:hover{border-color:var(--sage);box-shadow:0 2px 8px rgba(123,174,127,0.2);}
+.ext-link-dot{width:8px;height:8px;border-radius:50%;}
+
+/* ── CONTENT ── */
+.content{min-width:0;}
+.tabs{display:flex;gap:3px;margin-bottom:22px;background:rgba(58,50,40,0.06);border-radius:13px;padding:4px;width:fit-content;}
+.tab-btn{padding:7px 16px;border:none;background:transparent;border-radius:10px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:var(--br-m);cursor:pointer;transition:all 0.18s;}
+.tab-btn.active{background:var(--warm);color:var(--br);box-shadow:0 1px 5px rgba(0,0,0,0.09);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* ── SECTION HEADER ── */
+.section-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;margin-top:6px;}
+.section-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--br);}
+.section-badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px;}
+.badge-sage{background:#DDF0DA;color:#3D5A40;}
+.badge-lav{background:#EDE6F2;color:#6A4E82;}
+
+/* ── TRACK CARDS ── */
+.tracks-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:26px;}
+.track-card{background:var(--warm);border:1px solid var(--bd);border-radius:16px;padding:18px 20px;transition:box-shadow 0.2s;}
+.track-card:hover{box-shadow:0 4px 18px rgba(0,0,0,0.07);}
+.track-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;}
+.track-icon{font-size:26px;}
+.track-status{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;}
+.status-active{background:#DDF0DA;color:#3D5A40;}
+.status-next{background:#EDE6F2;color:#6A4E82;}
+.status-done{background:#FAE9D8;color:#8B4A1E;}
+.status-locked{background:rgba(58,50,40,0.06);color:var(--br-l);}
+.track-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--br);margin-bottom:3px;}
+.track-sub{font-size:11px;color:var(--br-m);}
+.progress-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;margin-top:12px;}
+.progress-pct{font-size:12px;font-weight:700;}
+.progress-bar{width:100%;height:5px;background:rgba(58,50,40,0.08);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:3px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
+.fill-sage{background:linear-gradient(90deg,#7BAE7F,#A8D0AB);}
+.fill-lav{background:linear-gradient(90deg,#C4A7CB,#D9C2E0);}
+.fill-peach{background:linear-gradient(90deg,#E8A87C,#F0C4A0);}
+.fill-rose{background:linear-gradient(90deg,#D49898,#E8B8B8);}
+.fill-blue{background:linear-gradient(90deg,#8FB8D8,#AACFE8);}
+
+/* ── NOTES CARDS ── */
+.notes-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:26px;}
+.note-card{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:16px 20px;cursor:pointer;transition:all 0.2s;}
+.note-card:hover{box-shadow:0 3px 14px rgba(0,0,0,0.06);border-color:var(--sage-l);}
+.note-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.note-title{font-size:14px;font-weight:700;color:var(--br);display:flex;align-items:center;gap:6px;}
+.note-date{font-size:11px;color:var(--br-l);}
+.note-body{font-size:12.5px;color:var(--br-m);line-height:1.7;}
+.note-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+.note-key{font-size:11px;font-weight:600;padding:2px 8px;border-radius:8px;background:rgba(58,50,40,0.06);color:var(--br-m);}
+
+/* ── CODE BLOCKS ── */
+.code-block{background:#2A2522;border-radius:12px;padding:14px 18px;font-size:12px;font-family:'Courier New',monospace;color:#D4C9BC;line-height:1.8;margin-top:10px;overflow-x:auto;}
+.code-block .kw{color:#E8A87C;} .code-block .str{color:#A8D0A8;} .code-block .com{color:#7A7260;} .code-block .fn{color:#C4A7CB;} .code-block .tag{color:#88BBD4;}
+.code-label{font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--br-l);margin-bottom:6px;}
+.snippet-card{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:18px 20px;margin-bottom:14px;}
+.snippet-title{font-size:14px;font-weight:700;color:var(--br);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.snippet-desc{font-size:12px;color:var(--br-m);margin-bottom:12px;}
+.snip-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* ── CONCEPTS GRID ── */
+.concepts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px;}
+.concept-pill{background:var(--warm);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;text-align:center;}
+.concept-icon{font-size:22px;margin-bottom:6px;}
+.concept-name{font-size:12px;font-weight:700;color:var(--br);margin-bottom:3px;}
+.concept-status{font-size:10px;color:var(--br-m);}
+
+/* ── TRACKER ── */
+.tracker-table{width:100%;border-collapse:separate;border-spacing:0;margin-bottom:24px;}
+.tracker-table th{font-size:11px;font-weight:700;color:var(--br-l);text-align:center;padding:8px 6px;letter-spacing:0.05em;text-transform:uppercase;}
+.tracker-table td{text-align:center;padding:6px;}
+.tracker-table td:first-child{text-align:left;font-size:13px;font-weight:500;color:var(--br);padding-left:0;}
+.tracker-table tr:not(:last-child) td{border-bottom:1px solid rgba(58,50,40,0.06);}
+.check-cell{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--bd);background:transparent;cursor:pointer;transition:all 0.15s;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.check-cell.checked{background:var(--sage);border-color:var(--sage);color:white;}
+.check-cell:hover:not(.checked){background:rgba(123,174,127,0.1);}
+.streak-section{background:var(--warm);border:1px solid var(--bd);border-radius:16px;padding:18px 20px;margin-bottom:16px;}
+.streak-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.streak-count{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;color:var(--sage-d);}
+.streak-label{font-size:12px;color:var(--br-m);margin-top:-4px;}
+.month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.day-dot{width:24px;height:24px;border-radius:6px;background:rgba(58,50,40,0.06);margin:0 auto;}
+.day-dot.done{background:var(--sage-l);}
+.day-dot.great{background:var(--sage);}
+.day-dot.today{background:var(--sage-d);}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px dashed rgba(58,50,40,0.12);margin:22px 0;}
+
+/* ── CALLOUT ── */
+.callout{background:rgba(196,167,203,0.12);border:1px solid rgba(196,167,203,0.3);border-radius:12px;padding:14px 16px;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start;}
+.callout-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.callout-text{font-size:13px;color:var(--br-m);line-height:1.6;}
+
+/* ── NOTEBOOK ── */
+.notebook-wrap{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start;}
+.notebook-pages{display:flex;flex-direction:column;gap:8px;}
+.page-entry{background:var(--warm);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all 0.15s;}
+.page-entry:hover,.page-entry.selected{border-color:var(--sage);background:rgba(123,174,127,0.06);}
+.page-entry-title{font-size:13px;font-weight:600;color:var(--br);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.page-entry-date{font-size:10px;color:var(--br-l);margin-top:2px;}
+.page-entry-preview{font-size:11px;color:var(--br-m);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Caveat',cursive;}
+.new-page-btn{width:100%;border:1.5px dashed var(--sage-l);background:transparent;border-radius:10px;padding:9px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;color:var(--sage-d);cursor:pointer;transition:all 0.15s;}
+.new-page-btn:hover{background:rgba(123,174,127,0.08);}
+.notebook-paper{background:var(--warm);border-radius:16px;border:1px solid var(--bd);overflow:hidden;position:relative;min-height:520px;}
+.spiral{display:flex;justify-content:space-around;padding:8px 20px;background:#F7F2EA;border-bottom:1px solid var(--bd);}
+.hole{width:18px;height:18px;border-radius:50%;background:var(--cream);border:2px solid var(--br-l);position:relative;}
+.hole::after{content:'';position:absolute;top:3px;left:3px;width:8px;height:8px;border-radius:50%;background:rgba(58,50,40,0.08);}
+.paper-inner{display:flex;min-height:480px;}
+.margin-line{width:48px;background:#FAF0EF;border-right:2px solid rgba(212,152,152,0.5);flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:48px;gap:28px;}
+.margin-num{font-size:9px;color:var(--rose);opacity:0.6;font-family:'Nunito',sans-serif;}
+.paper-write{flex:1;position:relative;}
+.paper-write::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 27px,rgba(139,170,143,0.25) 27px,rgba(139,170,143,0.25) 28px);background-position:0 16px;pointer-events:none;z-index:0;}
+.notebook-title-input{width:100%;border:none;outline:none;background:transparent;font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:var(--br);padding:14px 16px 6px;line-height:1.3;position:relative;z-index:1;}
+.notebook-title-input::placeholder{color:var(--br-l);}
+.notebook-textarea{width:100%;min-height:420px;border:none;outline:none;background:transparent;font-family:'Caveat',cursive;font-size:18px;color:var(--br);line-height:28px;padding:0 16px 16px;resize:none;position:relative;z-index:1;}
+.notebook-textarea::placeholder{color:var(--br-l);}
+.paper-toolbar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#F7F2EA;border-top:1px solid var(--bd);}
+.tool-btn{border:1px solid var(--bd);background:var(--warm);border-radius:8px;padding:4px 10px;font-size:11px;font-family:'Nunito',sans-serif;font-weight:600;color:var(--br-m);cursor:pointer;transition:all 0.15s;}
+.tool-btn:hover{border-color:var(--sage);color:var(--sage-d);}
+.save-indicator{font-size:10px;color:var(--br-l);margin-left:auto;}
+/* ── CALCULATOR ── */
+.calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.calc-wrap{background:var(--sage-d);border-radius:20px;padding:18px;box-shadow:0 8px 32px rgba(61,90,64,0.3);}
+.calc-brand{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:10px;text-align:center;}
+.calc-display{background:#2A3B2C;border-radius:12px;padding:12px 16px;margin-bottom:14px;min-height:74px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;gap:3px;}
+.calc-expr{font-size:12px;color:rgba(197,218,188,0.6);font-family:'Nunito',sans-serif;min-height:16px;word-break:break-all;text-align:right;}
+.calc-result{font-size:28px;font-weight:600;color:#C5DABC;font-family:'Nunito',sans-serif;word-break:break-all;text-align:right;}
+.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.calc-btn{border:none;border-radius:10px;height:46px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.1s;display:flex;align-items:center;justify-content:center;}
+.calc-btn:active{transform:scale(0.93);}
+.btn-num{background:rgba(255,255,255,0.12);color:#E8F2E8;}
+.btn-num:hover{background:rgba(255,255,255,0.2);}
+.btn-op{background:rgba(197,218,188,0.2);color:#C5DABC;}
+.btn-op:hover{background:rgba(197,218,188,0.32);}
+.btn-ac{background:rgba(232,168,124,0.3);color:#F0C4A0;font-size:12px;}
+.btn-ac:hover{background:rgba(232,168,124,0.45);}
+.btn-eq{background:var(--sage);color:#fff;grid-column:span 2;}
+.btn-eq:hover{background:#6A9E6E;}
+.calc-notes-wrap{display:flex;flex-direction:column;gap:12px;}
+.calc-note-card{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:16px 18px;}
+.calc-note-title{font-size:13px;font-weight:700;color:var(--br);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.formula-list{display:flex;flex-direction:column;gap:6px;}
+.formula-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:5px 0;border-bottom:1px solid rgba(58,50,40,0.06);}
+.formula-row:last-child{border-bottom:none;}
+.formula-name{color:var(--br-m);}
+.formula-val{font-family:'Caveat',cursive;font-size:15px;color:var(--sage-d);font-weight:600;}
+.calc-history{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:14px 18px;}
+.history-list{max-height:180px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin-top:8px;}
+.history-item{font-size:12px;color:var(--br-m);padding:4px 8px;border-radius:6px;display:flex;justify-content:space-between;cursor:pointer;}
+.history-item:hover{background:rgba(123,174,127,0.08);color:var(--sage-d);}
+/* ── EXPANDABLE ── */
+details summary{cursor:pointer;list-style:none;font-size:13px;font-weight:600;color:var(--sage-d);padding:4px 0;}
+details summary::-webkit-details-marker{display:none;}
+details summary::before{content:'▸ ';color:var(--sage);}
+details[open] summary::before{content:'▾ ';}
+details{background:rgba(123,174,127,0.06);border-radius:10px;padding:10px 14px;margin-bottom:8px;}
+details p{font-size:12.5px;color:var(--br-m);line-height:1.7;margin-top:8px;}
+
+/* ── CURRENTLY NOW ── */
+.now-card{background:linear-gradient(135deg,rgba(123,174,127,0.15),rgba(196,167,203,0.1));border:1px solid rgba(123,174,127,0.3);border-radius:14px;padding:14px 18px;margin-bottom:18px;}
+.now-label{font-size:10px;font-weight:700;color:var(--sage-d);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;}
+.now-track{font-size:14px;font-weight:700;color:var(--br);}
+.now-lesson{font-size:12px;color:var(--br-m);margin-top:3px;}
+
+/* ── PLAYGROUND ── */
+.playground-grid{display:grid;grid-template-columns:220px 1fr;gap:18px;margin-bottom:28px;}
+.flex-controls{background:var(--warm);border:1px solid var(--bd);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;}
+.ctrl-group{display:flex;flex-direction:column;gap:4px;}
+.ctrl-label{font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--br-l);}
+.ctrl-select{width:100%;border:1px solid var(--bd);border-radius:8px;padding:6px 8px;font-family:'Nunito',sans-serif;font-size:12px;color:var(--br);background:var(--cream);outline:none;cursor:pointer;}
+.ctrl-select:focus{border-color:var(--sage);}
+.ctrl-range{width:100%;accent-color:var(--sage);}
+.ctrl-val{font-size:11px;color:var(--sage-d);font-weight:700;text-align:right;}
+.ctrl-row{display:flex;align-items:center;gap:8px;}
+.flex-preview-wrap{display:flex;flex-direction:column;gap:12px;}
+.flex-stage{background:#F7F5F0;border:1.5px solid var(--bd);border-radius:14px;min-height:240px;position:relative;overflow:hidden;transition:all 0.3s;}
+.flex-container{display:flex;width:100%;height:100%;min-height:240px;position:absolute;inset:0;transition:all 0.3s;}
+.flex-item{border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.9);transition:all 0.3s;flex-shrink:0;min-width:44px;min-height:36px;cursor:pointer;position:relative;}
+.flex-item.selected-item{outline:2px solid white;outline-offset:2px;}
+.item-label{font-size:10px;font-weight:700;pointer-events:none;}
+.flex-css-out{background:#2A2522;border-radius:12px;padding:14px 16px;font-size:12px;font-family:'Courier New',monospace;color:#D4C9BC;line-height:1.9;}
+.flex-css-out .prop{color:#C5DABC;} .flex-css-out .val{color:#C4A7CB;} .flex-css-out .punc{color:#7A7260;}
+.item-controls{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;}
+.item-ctrl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+.item-prop-row{display:flex;flex-direction:column;gap:4px;}
+.item-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.15s;border:1px solid var(--bd);}
+.item-badge.on{background:var(--sage);color:white;border-color:var(--sage);}
+.item-badge.off{background:transparent;color:var(--br-m);}
+.item-colors{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+.item-count-btns{display:flex;gap:6px;}
+.icb{border:1px solid var(--bd);background:var(--warm);border-radius:8px;width:28px;height:28px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:700;color:var(--br-m);transition:all 0.15s;}
+.icb:hover{border-color:var(--sage);color:var(--sage-d);}
+/* ── SNIPPET LIBRARY ── */
+.snip-filter{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+.snip-filter-btn{border:1px solid var(--bd);background:transparent;border-radius:20px;padding:5px 14px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;color:var(--br-m);cursor:pointer;transition:all 0.15s;}
+.snip-filter-btn.active,.snip-filter-btn:hover{background:var(--sage);border-color:var(--sage);color:white;}
+.snip-library{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.snip-lib-card{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:16px 18px;transition:box-shadow 0.2s;}
+.snip-lib-card:hover{box-shadow:0 3px 14px rgba(0,0,0,0.07);}
+.snip-lib-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.snip-lib-title{font-size:13px;font-weight:700;color:var(--br);}
+.snip-lang-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;}
+.lang-css{background:#DDF0DA;color:#3D5A40;} .lang-html{background:#FAE9D8;color:#8B4A1E;} .lang-js{background:#EDE6F2;color:#6A4E82;}
+.snip-lib-desc{font-size:11.5px;color:var(--br-m);margin-bottom:10px;line-height:1.5;}
+.copy-btn{border:1px solid var(--bd);background:var(--side);border-radius:6px;padding:3px 9px;font-family:'Nunito',sans-serif;font-size:10px;font-weight:700;color:var(--br-m);cursor:pointer;transition:all 0.15s;margin-top:8px;}
+.copy-btn:hover{background:var(--sage);border-color:var(--sage);color:white;}
+.copy-btn.copied{background:var(--sage);border-color:var(--sage);color:white;}
+/* ── RESOURCE GRID ── */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.res-card{background:var(--warm);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;text-decoration:none;transition:all 0.15s;display:block;}
+.res-card:hover{border-color:var(--sage-l);box-shadow:0 3px 12px rgba(0,0,0,0.06);}
+.res-icon{font-size:20px;margin-bottom:6px;}
+.res-name{font-size:13px;font-weight:700;color:var(--br);margin-bottom:2px;}
+.res-desc{font-size:11px;color:var(--br-m);}
+/* ── NOTEBOOK V2 ── */
+.nb-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.nb-back{font-size:13px;font-weight:600;color:var(--sage-d);cursor:pointer;padding:4px 10px;border-radius:8px;border:1px solid var(--sage-l);transition:all 0.15s;}
+.nb-back:hover{background:rgba(123,174,127,0.12);}
+.nb-crumb-sep{color:var(--br-l);font-size:12px;}
+.nb-crumb-cur{font-size:13px;font-weight:600;color:var(--br);}
+/* Folder shelf */
+.folder-shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.folder-card{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.folder-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;border-radius:14px 14px 0 0;}
+.folder-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+.folder-emoji{font-size:28px;margin-bottom:8px;}
+.folder-name{font-size:14px;font-weight:700;color:var(--br);margin-bottom:3px;}
+.folder-count{font-size:11px;color:var(--br-m);}
+.folder-new-btn{border:1.5px dashed var(--sage-l);background:transparent;border-radius:14px;padding:18px 16px;cursor:pointer;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:var(--sage-d);width:100%;text-align:left;transition:all 0.15s;}
+.folder-new-btn:hover{background:rgba(123,174,127,0.07);}
+/* Book grid (inside folder) */
+.nb-book-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px;}
+.book-thumb{cursor:pointer;text-align:center;transition:all 0.2s;}
+.book-thumb:hover{transform:translateY(-4px);}
+.book-thumb-visual{width:80px;height:100px;border-radius:3px 10px 10px 3px;margin:0 auto 8px;position:relative;box-shadow:3px 3px 10px rgba(0,0,0,0.15);}
+.book-thumb-spine{position:absolute;left:0;top:0;width:8px;height:100%;background:rgba(0,0,0,0.2);border-radius:3px 0 0 3px;}
+.book-thumb-pages{position:absolute;right:-3px;top:2px;width:6px;height:96px;background:repeating-linear-gradient(to bottom,#f0ece4 0,#f0ece4 2px,#e0dbd2 2px,#e0dbd2 3px);border-radius:0 2px 2px 0;}
+.book-thumb-title{font-size:11px;font-weight:700;color:var(--br);line-height:1.3;}
+.book-thumb-emoji{font-size:18px;margin-bottom:4px;}
+.book-new-thumb{cursor:pointer;text-align:center;transition:all 0.2s;}
+.book-new-thumb:hover{transform:translateY(-3px);}
+.book-new-visual{width:80px;height:100px;border-radius:3px 10px 10px 3px;margin:0 auto 8px;border:2px dashed var(--sage-l);display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--sage);background:rgba(123,174,127,0.04);}
+/* Closed book 3D */
+.book-scene-wrap{perspective:1400px;display:flex;justify-content:center;padding:30px 0 20px;}
+.closed-book-3d{width:220px;height:290px;position:relative;transform-style:preserve-3d;transform:rotateY(20deg) rotateX(2deg);transition:transform 0.4s;cursor:pointer;}
+.closed-book-3d:hover{transform:rotateY(25deg) rotateX(2deg) scale(1.03);}
+.book-3d-cover{position:absolute;width:220px;height:290px;transform-origin:left center;transform-style:preserve-3d;transition:transform 1s cubic-bezier(0.645,0.045,0.355,1);}
+.book-3d-cover.opening{transform:rotateY(-160deg);}
+.book-3d-front{position:absolute;inset:0;border-radius:3px 12px 12px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;backface-visibility:hidden;padding:20px;}
+.book-3d-back{position:absolute;inset:0;background:#F7F2EA;border-radius:12px 3px 3px 12px;backface-visibility:hidden;transform:rotateY(180deg);}
+.book-3d-pages{position:absolute;left:12px;top:4px;width:210px;height:282px;background:repeating-linear-gradient(to bottom,#f5f0e8 0,#f5f0e8 3px,#e8e0d4 3px,#e8e0d4 4px);border-radius:0 10px 10px 0;box-shadow:inset -2px 0 4px rgba(0,0,0,0.06);}
+.book-3d-spine{position:absolute;left:-14px;top:0;width:14px;height:290px;border-radius:4px 0 0 4px;transform-origin:right;transform:rotateY(-90deg) translateX(7px);}
+.cover-open-hint{font-size:11px;color:rgba(255,255,255,0.6);margin-top:16px;font-family:'Nunito',sans-serif;letter-spacing:0.04em;}
+.cover-editable{background:transparent;border:none;outline:none;font-family:'Caveat',cursive;text-align:center;color:rgba(255,255,255,0.95);width:100%;cursor:text;}
+.cover-editable:focus{background:rgba(255,255,255,0.1);border-radius:6px;}
+/* Open book spread */
+.open-spread-wrap{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:8px;}
+.page-nav-side{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--bd);background:var(--warm);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--br-m);transition:all 0.15s;flex-shrink:0;}
+.page-nav-side:hover{border-color:var(--sage);color:var(--sage-d);}
+.page-nav-side:disabled{opacity:0.3;cursor:default;}
+.open-book-spread{perspective:2000px;position:relative;}
+.spread-inner{display:flex;width:640px;height:400px;box-shadow:0 12px 40px rgba(0,0,0,0.18);border-radius:3px 12px 12px 3px;position:relative;}
+.book-page-l,.book-page-r{width:320px;height:400px;position:relative;overflow:hidden;}
+.book-page-l{background:linear-gradient(to right,#F7F2EA,#FDFAF5);border-radius:3px 0 0 3px;border-right:2px solid rgba(58,50,40,0.12);}
+.book-page-r{background:linear-gradient(to left,#F7F2EA,#FDFAF5);border-radius:0 12px 12px 0;}
+.page-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 27px,rgba(139,170,143,0.2) 27px,rgba(139,170,143,0.2) 28px);background-position:0 36px;pointer-events:none;}
+.page-content-area{padding:16px 18px 16px 20px;height:100%;display:flex;flex-direction:column;}
+.page-title-input{font-family:'Caveat',cursive;font-size:20px;font-weight:600;color:var(--br);border:none;outline:none;background:transparent;width:100%;border-bottom:1.5px solid rgba(212,152,152,0.4);margin-bottom:10px;padding-bottom:4px;}
+.page-title-input::placeholder{color:var(--br-l);}
+.page-body-input{font-family:'Caveat',cursive;font-size:16px;color:var(--br);border:none;outline:none;background:transparent;flex:1;resize:none;line-height:28px;}
+.page-body-input::placeholder{color:var(--br-l);}
+.page-num{position:absolute;bottom:10px;font-size:11px;color:var(--br-l);font-family:'Nunito',sans-serif;}
+.book-page-l .page-num{left:16px;}
+.book-page-r .page-num{right:16px;}
+.book-spine-center{position:absolute;left:50%;transform:translateX(-50%);top:0;width:16px;height:100%;background:linear-gradient(to right,rgba(0,0,0,0.06),rgba(0,0,0,0.02),rgba(0,0,0,0.06));z-index:5;}
+/* Page flip animation */
+.page-flipper-el{position:absolute;top:0;right:0;width:320px;height:400px;transform-origin:left center;transform-style:preserve-3d;z-index:20;pointer-events:none;}
+.page-flipper-el.flip-fwd{animation:pageFlipFwd 0.65s cubic-bezier(0.645,0.045,0.355,1) forwards;}
+.page-flipper-el.flip-bck{animation:pageFlipBck 0.65s cubic-bezier(0.645,0.045,0.355,1) forwards;}
+@keyframes pageFlipFwd{0%{transform:rotateY(0deg)}100%{transform:rotateY(-180deg)}}
+@keyframes pageFlipBck{0%{transform:rotateY(-180deg)}100%{transform:rotateY(0deg)}}
+.flipper-face,.flipper-back-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:0 12px 12px 0;}
+.flipper-face{background:linear-gradient(to left,#F7F2EA,#FDFAF5);}
+.flipper-back-face{background:linear-gradient(to right,#F7F2EA,#FDFAF5);transform:rotateY(180deg);border-radius:3px 0 0 3px;}
+.flipper-face .page-lines,.flipper-back-face .page-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 27px,rgba(139,170,143,0.2) 27px,rgba(139,170,143,0.2) 28px);background-position:0 36px;}
+.spread-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:0 4px;}
+.spread-page-info{font-size:11px;color:var(--br-l);}
+.spread-add-btn{border:1px solid var(--bd);background:var(--warm);border-radius:8px;padding:5px 12px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;color:var(--br-m);cursor:pointer;transition:all 0.15s;}
+.spread-add-btn:hover{border-color:var(--sage);color:var(--sage-d);}
+/* Inline modal for new folder/notebook */
+.nb-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:100;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.nb-modal{background:var(--warm);border-radius:18px;padding:28px;width:360px;box-shadow:0 20px 60px rgba(0,0,0,0.2);}
+.nb-modal h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:18px;color:var(--br);}
+.nb-modal input{width:100%;border:1.5px solid var(--bd);border-radius:10px;padding:9px 12px;font-family:'Nunito',sans-serif;font-size:14px;color:var(--br);outline:none;margin-bottom:12px;background:var(--cream);}
+.nb-modal input:focus{border-color:var(--sage);}
+.nb-color-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.nb-color-dot{width:28px;height:28px;border-radius:50%;cursor:pointer;transition:transform 0.15s;border:2px solid transparent;}
+.nb-color-dot.selected{border-color:var(--br);transform:scale(1.15);}
+.nb-emoji-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.nb-emoji-opt{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--bd);background:var(--cream);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.nb-emoji-opt.selected{border-color:var(--sage);background:rgba(123,174,127,0.1);}
+.nb-modal-btns{display:flex;gap:8px;justify-content:flex-end;}
+.nb-modal-cancel{border:1px solid var(--bd);background:transparent;border-radius:10px;padding:8px 18px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:var(--br-m);cursor:pointer;}
+.nb-modal-ok{border:none;background:var(--sage-d);border-radius:10px;padding:8px 18px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:white;cursor:pointer;}
+/* ── CODE EDITOR ── */
+.editor-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--bd);border-radius:16px;overflow:hidden;min-height:540px;}
+.editor-left{display:flex;flex-direction:column;border-right:1px solid var(--bd);}
+.editor-lang-tabs{display:flex;border-bottom:1px solid var(--bd);}
+.ed-tab{padding:10px 18px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--br-m);cursor:pointer;border:none;background:var(--side);border-right:1px solid var(--bd);transition:all 0.15s;}
+.ed-tab.active{background:var(--warm);color:var(--br);}
+.ed-tab:hover:not(.active){background:#EDE8DF;}
+.ed-code{flex:1;width:100%;border:none;outline:none;background:#2A2522;color:#D4C9BC;font-family:'Courier New',monospace;font-size:13px;line-height:1.75;padding:16px 18px;resize:none;tab-size:2;}
+.editor-toolbar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#2A2522;border-top:1px solid rgba(255,255,255,0.06);}
+.run-btn{display:flex;align-items:center;gap:6px;border:none;background:var(--sage);border-radius:8px;padding:7px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:white;cursor:pointer;transition:all 0.15s;}
+.run-btn:hover{background:#6A9E6E;} .run-btn:active{transform:scale(0.97);}
+.clear-btn{border:1px solid rgba(255,255,255,0.15);background:transparent;border-radius:8px;padding:7px 14px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:600;color:rgba(212,201,188,0.7);cursor:pointer;}
+.clear-btn:hover{background:rgba(255,255,255,0.06);}
+.ed-size-note{font-size:10px;color:rgba(212,201,188,0.4);margin-left:auto;}
+.editor-right{display:flex;flex-direction:column;}
+.preview-topbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--side);border-bottom:1px solid var(--bd);}
+.preview-dot{width:10px;height:10px;border-radius:50%;}
+.preview-label{font-size:11px;font-weight:700;color:var(--br-m);margin-left:4px;}
+.preview-refresh{margin-left:auto;border:1px solid var(--bd);background:transparent;border-radius:6px;padding:3px 10px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:600;color:var(--br-m);cursor:pointer;}
+.preview-refresh:hover{border-color:var(--sage);color:var(--sage-d);}
+.preview-frame{flex:1;border:none;background:white;}
+.editor-tips{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px;}
+.ed-tip{background:var(--warm);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;}
+.ed-tip-title{font-size:12px;font-weight:700;color:var(--br);margin-bottom:5px;}
+.ed-tip-body{font-size:11px;color:var(--br-m);line-height:1.6;}
+/* ── TRACKER CALENDAR ── */
+.tracker-layout{display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:start;}
+.activity-palette{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:14px;}
+.palette-label{font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--br-l);margin-bottom:10px;}
+.activity-chip{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:10px;font-size:12px;font-weight:600;cursor:grab;margin-bottom:6px;border:1px solid transparent;transition:all 0.15s;user-select:none;}
+.activity-chip:active{cursor:grabbing;opacity:0.7;}
+.activity-chip:hover{transform:translateX(2px);}
+.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.cal-wrap{background:var(--warm);border:1px solid var(--bd);border-radius:14px;padding:16px;}
+.cal-month-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.cal-month-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--br);}
+.cal-nav-btn{border:1px solid var(--bd);background:transparent;border-radius:8px;width:28px;height:28px;cursor:pointer;font-size:15px;color:var(--br-m);display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.cal-nav-btn:hover{border-color:var(--sage);color:var(--sage-d);}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+.cal-dow-cell{text-align:center;font-size:10px;font-weight:700;color:var(--br-l);letter-spacing:0.05em;padding:4px 0;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-day{min-height:68px;border:1px solid var(--bd);border-radius:8px;padding:4px 5px;transition:background 0.15s,border-color 0.15s;cursor:default;position:relative;}
+.cal-day.other-month{opacity:0.4;}
+.cal-day.today{border-color:var(--sage);}
+.cal-day.drop-over{border-color:var(--sage);background:rgba(123,174,127,0.14);border-style:dashed;}
+.cal-day-num{font-size:11px;font-weight:700;color:var(--br-m);margin-bottom:3px;width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.cal-day.today .cal-day-num{background:var(--sage);color:white;font-size:10px;}
+.day-chips{display:flex;flex-direction:column;gap:2px;}
+.day-chip-sm{display:flex;align-items:center;gap:3px;padding:2px 5px;border-radius:5px;font-size:9px;font-weight:700;cursor:pointer;border:none;width:100%;text-align:left;line-height:1.3;}
+.day-chip-sm:hover{opacity:0.7;}
+.cal-streak{display:flex;align-items:center;gap:12px;background:var(--warm);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin-bottom:14px;}
+.cal-streak-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--sage-d);}
+.cal-streak-info{font-size:11px;color:var(--br-m);}
+/* ── NOTEBOOK OPEN TOOLBAR ── */
+.nb-open-toolbar{display:flex;align-items:center;gap:8px;background:var(--warm);border:1px solid var(--bd);border-radius:12px;padding:8px 12px;margin-bottom:10px;flex-wrap:wrap;}
+.nb-tool-label{font-size:10px;font-weight:700;color:var(--br-l);text-transform:uppercase;letter-spacing:0.05em;}
+.nb-tool-sep{width:1px;height:20px;background:var(--bd);}
+.nb-font-sel{border:1px solid var(--bd);border-radius:7px;padding:3px 7px;font-family:'Nunito',sans-serif;font-size:11px;color:var(--br);background:var(--cream);outline:none;cursor:pointer;}
+.nb-tool-range{width:70px;accent-color:var(--sage);}
+.nb-tool-color{width:26px;height:26px;border-radius:6px;border:1px solid var(--bd);cursor:pointer;padding:1px;}
+.nb-zoom-val{font-size:11px;font-weight:700;color:var(--sage-d);min-width:36px;}
+.spread-scale-wrap{transform-origin:top center;transition:transform 0.2s;}
+</style>
+</head>
+<body>
+
+<!-- ── BANNER ── -->
+<div class="banner" aria-label="Cozy forest study scene illustration">
+  <span class="star st1">✦</span>
+  <span class="star st2">✦</span>
+  <span class="star st3">✦</span>
+  <div class="hill h1"></div>
+  <div class="hill h2"></div>
+  <div class="hill h3"></div>
+  <div class="tree t1"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+  <div class="tree t2"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+  <div class="tree t3"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+  <div class="tree t4"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+  <div class="tree t5"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+  <div class="tree t6"><div class="tree-top"></div><div class="tree-trunk"></div></div>
+  <div class="shroom s1"><div class="shroom-cap"></div><div class="shroom-stem"></div></div>
+  <div class="shroom s2"><div class="shroom-cap"></div><div class="shroom-stem"></div></div>
+  <div class="flower f1">🌸</div>
+  <div class="flower f2">🌼</div>
+  <div class="flower f3">🌸</div>
+</div>
+
+<!-- ── PAGE META ── -->
+<div class="page-meta">
+  <div class="page-icon">🌿</div>
+  <div class="page-title">code garden</div>
+  <div class="page-desc">a cozy corner for learning HTML, CSS, JavaScript, React · and Boot.dev adventures</div>
+  <div class="page-tags">
+    <span class="tag tag-sage">🌱 Codedex</span>
+    <span class="tag tag-lav">🚀 Boot.dev</span>
+    <span class="tag tag-peach">2026</span>
+    <span class="tag tag-rose">web dev track</span>
+  </div>
+</div>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="main-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="side-section">
+      <div class="side-label">navigate</div>
+      <div class="side-link active" onclick="switchTab('codedex',this)"><span class="side-link-icon">🌿</span> Codedex</div>
+      <div class="side-link" onclick="switchTab('bootdev',this)"><span class="side-link-icon">🚀</span> Boot.dev</div>
+      <div class="side-link" onclick="switchTab('snippets',this)"><span class="side-link-icon">📋</span> Snippets</div>
+      <div class="side-link" onclick="switchTab('tracker',this)"><span class="side-link-icon">📅</span> Tracker</div>
+      <div class="side-link" onclick="switchTab('notebook',this)"><span class="side-link-icon">📓</span> Notebook</div>
+      <div class="side-link" onclick="switchTab('calculator',this)"><span class="side-link-icon">🧮</span> Calculator</div>
+      <div class="side-link" onclick="switchTab('playground',this)"><span class="side-link-icon">🎮</span> Playground</div>
+      <div class="side-link" onclick="switchTab('editor',this)"><span class="side-link-icon">💻</span> Editor</div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-label">quick open</div>
+      <a class="ext-link" href="https://codedex.io" target="_blank">
+        <span class="ext-link-dot" style="background:#7BAE7F;"></span> codedex.io
+      </a>
+      <a class="ext-link" href="https://boot.dev" target="_blank">
+        <span class="ext-link-dot" style="background:#C4A7CB;"></span> boot.dev
+      </a>
+      <a class="ext-link" href="https://developer.mozilla.org" target="_blank">
+        <span class="ext-link-dot" style="background:#E8A87C;"></span> MDN Docs
+      </a>
+    </div>
+
+    <div class="side-section">
+      <div class="side-label">this week</div>
+      <div class="stat-row">
+        <div>
+          <div class="stat-num" id="session-count">4</div>
+          <div class="stat-lbl">sessions logged</div>
+        </div>
+        <div style="text-align:right">
+          <div class="stat-num" style="color:var(--lav);">12</div>
+          <div class="stat-lbl">concepts learned</div>
+        </div>
+      </div>
+      <div class="streak-bar" id="streak-bar">
+        <div class="streak-dot done"></div>
+        <div class="streak-dot done"></div>
+        <div class="streak-dot done"></div>
+        <div class="streak-dot"></div>
+        <div class="streak-dot done"></div>
+        <div class="streak-dot done"></div>
+        <div class="streak-dot"></div>
+      </div>
+      <div style="font-size:10px;color:var(--br-l);margin-top:5px;">Mon — Sun</div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-label">currently in</div>
+      <div style="background:var(--warm);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;">
+        <div style="font-size:12px;font-weight:700;color:var(--sage-d);margin-bottom:2px;">🌐 HTML Basics</div>
+        <div style="font-size:11px;color:var(--br-m);">Codedex · Web Dev Track</div>
+        <div style="margin-top:8px;">
+          <div class="progress-bar"><div class="progress-fill fill-sage" data-progress="28" style="width:28%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <div class="quote-box">"Every expert was once a beginner. Every master was once a disaster." 🌱</div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="content">
+
+    <!-- ──────────────────── CODEDEX TAB ──────────────────── -->
+    <div class="tab-content active" id="tab-codedex">
+
+      <div class="now-card">
+        <div class="now-label">📍 currently studying</div>
+        <div class="now-track">HTML Basics — Web Dev Track</div>
+        <div class="now-lesson">Chapter 2: Structure & Tags · lesson 6 of 20</div>
+      </div>
+
+      <div class="section-head">
+        <div class="section-title">tracks</div>
+        <span class="section-badge badge-sage">Web Dev Path</span>
+      </div>
+      <div class="tracks-grid">
+        <div class="track-card">
+          <div class="track-top">
+            <div class="track-icon">🌐</div>
+            <span class="track-status status-active">in progress</span>
+          </div>
+          <div class="track-name">HTML</div>
+          <div class="track-sub">Structure · Semantics · Forms</div>
+          <div class="progress-row">
+            <span class="progress-pct" style="color:var(--sage-d);">28%</span>
+            <span style="font-size:11px;color:var(--br-l);">6 / 20 lessons</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill fill-sage" data-progress="28"></div></div>
+        </div>
+
+        <div class="track-card">
+          <div class="track-top">
+            <div class="track-icon">🎨</div>
+            <span class="track-status status-next">up next</span>
+          </div>
+          <div class="track-name">CSS</div>
+          <div class="track-sub">Styling · Flexbox · Grid · Animation</div>
+          <div class="progress-row">
+            <span class="progress-pct" style="color:var(--lav);">0%</span>
+            <span style="font-size:11px;color:var(--br-l);">0 / 22 lessons</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill fill-lav" data-progress="0"></div></div>
+        </div>
+
+        <div class="track-card">
+          <div class="track-top">
+            <div class="track-icon">⚡</div>
+            <span class="track-status status-locked">locked</span>
+          </div>
+          <div class="track-name">JavaScript</div>
+          <div class="track-sub">Logic · DOM · Events · Fetch</div>
+          <div class="progress-row">
+            <span class="progress-pct" style="color:var(--br-l);">—</span>
+            <span style="font-size:11px;color:var(--br-l);">0 / 28 lessons</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill fill-peach" data-progress="0"></div></div>
+        </div>
+
+        <div class="track-card">
+          <div class="track-top">
+            <div class="track-icon">⚛️</div>
+            <span class="track-status status-locked">locked</span>
+          </div>
+          <div class="track-name">React</div>
+          <div class="track-sub">Components · State · Hooks · JSX</div>
+          <div class="progress-row">
+            <span class="progress-pct" style="color:var(--br-l);">—</span>
+            <span style="font-size:11px;color:var(--br-l);">0 / 18 lessons</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill fill-rose" data-progress="0"></div></div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-head">
+        <div class="section-title">HTML notes</div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-icon">🪴</span>
+        <div class="callout-text">HTML gives a page its <strong>structure</strong> — think of it like the skeleton. It tells the browser what things <em>are</em> (a heading, a paragraph, a link), not how they look. CSS does the styling later.</div>
+      </div>
+
+      <div class="notes-grid">
+        <div class="note-card">
+          <div class="note-head">
+            <div class="note-title">🧱 basic document structure</div>
+            <span class="note-date">today</span>
+          </div>
+          <div class="note-body">Every HTML file starts the same way. The <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;!DOCTYPE html&gt;</code> declaration tells the browser we're using HTML5. Then comes <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;html&gt;</code> wrapping everything, with <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;head&gt;</code> (invisible metadata) and <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;body&gt;</code> (visible content).</div>
+          <div class="code-block">
+<span class="com">&lt;!-- every HTML file needs this ✓ --&gt;</span>
+<span class="kw">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="fn">lang</span>=<span class="str">"en"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="fn">charset</span>=<span class="str">"UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>my page<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    <span class="com">&lt;!-- all visible content goes here --&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+          </div>
+          <div class="note-tags">
+            <span class="note-key">structure</span>
+            <span class="note-key">boilerplate</span>
+            <span class="note-key">ch.1</span>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div class="note-head">
+            <div class="note-title">📝 common tags to know</div>
+            <span class="note-date">this week</span>
+          </div>
+          <div class="note-body">Semantic tags mean something — they describe the content's <em>role</em>. Non-semantic tags like <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;div&gt;</code> and <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;span&gt;</code> are just containers with no meaning attached.</div>
+          <div class="code-block">
+<span class="com">&lt;!-- headings: h1 (biggest) → h6 --&gt;</span>
+<span class="tag">&lt;h1&gt;</span>main title<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>section title<span class="tag">&lt;/h2&gt;</span>
+
+<span class="com">&lt;!-- text --&gt;</span>
+<span class="tag">&lt;p&gt;</span>a paragraph of text<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;strong&gt;</span>bold / important<span class="tag">&lt;/strong&gt;</span>
+<span class="tag">&lt;em&gt;</span>italic / emphasis<span class="tag">&lt;/em&gt;</span>
+
+<span class="com">&lt;!-- links & images --&gt;</span>
+<span class="tag">&lt;a</span> <span class="fn">href</span>=<span class="str">"url"</span><span class="tag">&gt;</span>click me<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;img</span> <span class="fn">src</span>=<span class="str">"photo.jpg"</span> <span class="fn">alt</span>=<span class="str">"desc"</span><span class="tag">&gt;</span>
+          </div>
+          <div class="note-tags">
+            <span class="note-key">tags</span><span class="note-key">semantic</span><span class="note-key">ch.2</span>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <div class="note-head">
+            <div class="note-title">📦 lists & containers</div>
+            <span class="note-date">this week</span>
+          </div>
+          <div class="note-body">Lists come in two flavors. Unordered (<code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;ul&gt;</code>) gives bullet points. Ordered (<code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;ol&gt;</code>) gives numbers. Both use <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;li&gt;</code> for each item. <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;div&gt;</code> and <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">&lt;section&gt;</code> group other elements.</div>
+          <div class="code-block">
+<span class="tag">&lt;ul&gt;</span>  <span class="com">&lt;!-- unordered (bullets) --&gt;</span>
+  <span class="tag">&lt;li&gt;</span>apples<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>oranges<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+<span class="tag">&lt;ol&gt;</span>  <span class="com">&lt;!-- ordered (numbers) --&gt;</span>
+  <span class="tag">&lt;li&gt;</span>first<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>second<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+          </div>
+          <div class="note-tags"><span class="note-key">lists</span><span class="note-key">ch.2</span></div>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-head">
+        <div class="section-title">upcoming concepts</div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-pill"><div class="concept-icon">🗺️</div><div class="concept-name">Attributes</div><div class="concept-status">next lesson</div></div>
+        <div class="concept-pill"><div class="concept-icon">📋</div><div class="concept-name">Forms & Inputs</div><div class="concept-status">ch. 3</div></div>
+        <div class="concept-pill"><div class="concept-icon">🏗️</div><div class="concept-name">Semantic HTML</div><div class="concept-status">ch. 3</div></div>
+        <div class="concept-pill"><div class="concept-icon">🖼️</div><div class="concept-name">Images & Media</div><div class="concept-status">ch. 4</div></div>
+        <div class="concept-pill"><div class="concept-icon">🔗</div><div class="concept-name">Links & Nav</div><div class="concept-status">ch. 4</div></div>
+        <div class="concept-pill"><div class="concept-icon">📊</div><div class="concept-name">Tables</div><div class="concept-status">ch. 5</div></div>
+      </div>
+    </div>
+
+    <!-- ──────────────────── BOOT.DEV TAB ──────────────────── -->
+    <div class="tab-content" id="tab-bootdev">
+
+      <div class="callout">
+        <span class="callout-icon">🚀</span>
+        <div class="callout-text">Boot.dev is a back-end and CS fundamentals path. It focuses on <strong>Python</strong> and <strong>Go</strong>, plus computer science concepts — algorithms, data structures, and how the internet actually works. Good complement to Codedex's front-end focus.</div>
+      </div>
+
+      <div class="section-head">
+        <div class="section-title">tracks</div>
+        <span class="section-badge badge-lav">Back-End Path</span>
+      </div>
+      <div class="tracks-grid">
+        <div class="track-card">
+          <div class="track-top"><div class="track-icon">🐍</div><span class="track-status status-next">start here</span></div>
+          <div class="track-name">Learn Python</div>
+          <div class="track-sub">Syntax · Functions · OOP · Files</div>
+          <div class="progress-row"><span class="progress-pct" style="color:var(--lav);">0%</span><span style="font-size:11px;color:var(--br-l);">0 / 25 chapters</span></div>
+          <div class="progress-bar"><div class="progress-fill fill-lav" data-progress="0"></div></div>
+        </div>
+        <div class="track-card">
+          <div class="track-top"><div class="track-icon">🐹</div><span class="track-status status-locked">locked</span></div>
+          <div class="track-name">Learn Go</div>
+          <div class="track-sub">Types · Goroutines · Errors · APIs</div>
+          <div class="progress-row"><span class="progress-pct" style="color:var(--br-l);">—</span><span style="font-size:11px;color:var(--br-l);">0 / 20 chapters</span></div>
+          <div class="progress-bar"><div class="progress-fill fill-blue" data-progress="0"></div></div>
+        </div>
+        <div class="track-card">
+          <div class="track-top"><div class="track-icon">🌐</div><span class="track-status status-locked">locked</span></div>
+          <div class="track-name">HTTP & Web</div>
+          <div class="track-sub">REST · Methods · Status Codes</div>
+          <div class="progress-row"><span class="progress-pct" style="color:var(--br-l);">—</span><span style="font-size:11px;color:var(--br-l);">0 / 14 chapters</span></div>
+          <div class="progress-bar"><div class="progress-fill fill-peach" data-progress="0"></div></div>
+        </div>
+        <div class="track-card">
+          <div class="track-top"><div class="track-icon">🧠</div><span class="track-status status-locked">locked</span></div>
+          <div class="track-name">CS Fundamentals</div>
+          <div class="track-sub">Algorithms · Data Structures · Big-O</div>
+          <div class="progress-row"><span class="progress-pct" style="color:var(--br-l);">—</span><span style="font-size:11px;color:var(--br-l);">0 / 30 chapters</span></div>
+          <div class="progress-bar"><div class="progress-fill fill-rose" data-progress="0"></div></div>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-head"><div class="section-title">Python basics — pre-notes</div></div>
+      <div class="notes-grid">
+        <div class="note-card">
+          <div class="note-head"><div class="note-title">🐍 Python variables & types</div><span class="note-date">reference</span></div>
+          <div class="note-body">Python is dynamically typed — you don't declare types, Python figures them out. Everything is an object. Use <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">type()</code> to check what type something is.</div>
+          <div class="code-block">
+<span class="com"># no type declarations needed!</span>
+<span class="fn">name</span> = <span class="str">"macie"</span>        <span class="com"># str</span>
+<span class="fn">age</span>  = <span class="kw">22</span>           <span class="com"># int</span>
+<span class="fn">score</span> = <span class="kw">9.8</span>         <span class="com"># float</span>
+<span class="fn">is_artist</span> = <span class="kw">True</span>   <span class="com"># bool</span>
+
+<span class="fn">print</span>(<span class="fn">type</span>(name))  <span class="com"># &lt;class 'str'&gt;</span>
+          </div>
+          <div class="note-tags"><span class="note-key">variables</span><span class="note-key">types</span><span class="note-key">basics</span></div>
+        </div>
+
+        <div class="note-card">
+          <div class="note-head"><div class="note-title">🔄 functions in Python</div><span class="note-date">reference</span></div>
+          <div class="note-body">Functions use <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">def</code> and <strong>indentation</strong> (4 spaces) instead of curly braces. Python cares a lot about whitespace — it's part of the syntax.</div>
+          <div class="code-block">
+<span class="kw">def</span> <span class="fn">greet</span>(name):
+    <span class="kw">return</span> <span class="str">f"hello, {name}! 🌿"</span>
+
+<span class="kw">def</span> <span class="fn">add</span>(a, b):
+    <span class="kw">return</span> a + b
+
+<span class="fn">print</span>(<span class="fn">greet</span>(<span class="str">"macie"</span>))   <span class="com"># hello, macie! 🌿</span>
+<span class="fn">print</span>(<span class="fn">add</span>(<span class="kw">3</span>, <span class="kw">4</span>))       <span class="com"># 7</span>
+          </div>
+          <div class="note-tags"><span class="note-key">functions</span><span class="note-key">def</span><span class="note-key">basics</span></div>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-head"><div class="section-title">CS concepts to know</div></div>
+      <details>
+        <summary>Big-O Notation — why it matters</summary>
+        <p>Big-O describes how an algorithm's speed scales with input size. O(1) is constant (always same speed). O(n) grows linearly with input. O(n²) gets slow fast. The goal is usually to minimize Big-O, especially for large data sets.</p>
+      </details>
+      <details>
+        <summary>HTTP Methods — GET, POST, PUT, DELETE</summary>
+        <p>GET retrieves data (safe, no changes). POST creates new data. PUT updates existing data. DELETE removes it. These are the building blocks of any REST API — every web request uses one of these.</p>
+      </details>
+      <details>
+        <summary>Variables vs. Functions — the mental model</summary>
+        <p>A variable stores a value (data at rest). A function stores a procedure (actions to run). Think of variables as nouns and functions as verbs. In Python, functions are also objects — you can pass them around like values.</p>
+      </details>
+
+      <hr class="divider">
+      <div class="section-head"><div class="section-title">useful resources</div></div>
+      <div class="res-grid">
+        <a class="res-card" href="https://docs.python.org/3/" target="_blank"><div class="res-icon">📖</div><div class="res-name">Python Docs</div><div class="res-desc">Official Python 3 documentation</div></a>
+        <a class="res-card" href="https://realpython.com" target="_blank"><div class="res-icon">🐍</div><div class="res-name">Real Python</div><div class="res-desc">Beginner-friendly tutorials</div></a>
+        <a class="res-card" href="https://www.bigocheatsheet.com" target="_blank"><div class="res-icon">📊</div><div class="res-name">Big-O Cheat Sheet</div><div class="res-desc">Algorithm complexity reference</div></a>
+        <a class="res-card" href="https://gobyexample.com" target="_blank"><div class="res-icon">🐹</div><div class="res-name">Go by Example</div><div class="res-desc">Learn Go with annotated snippets</div></a>
+      </div>
+    </div>
+
+    <!-- ──────────────────── SNIPPETS TAB ──────────────────── -->
+    <div class="tab-content" id="tab-snippets">
+
+      <div class="section-head"><div class="section-title">pinned snippets</div><span class="section-badge badge-sage">HTML & CSS</span></div>
+
+      <div class="snip-grid">
+        <div class="snippet-card">
+          <div class="snippet-title">🎯 CSS flexbox centering</div>
+          <div class="snippet-desc">The one trick you'll use everywhere — centering literally anything.</div>
+          <div class="code-block">
+<span class="fn">.center</span> {
+  <span class="kw">display</span>: flex;
+  <span class="kw">align-items</span>: center;
+  <span class="kw">justify-content</span>: center;
+}
+          </div>
+          <div class="note-tags" style="margin-top:10px;"><span class="note-key">CSS</span><span class="note-key">flexbox</span></div>
+        </div>
+
+        <div class="snippet-card">
+          <div class="snippet-title">📐 CSS box model reset</div>
+          <div class="snippet-desc">Put this at the top of every CSS file — makes sizing predictable.</div>
+          <div class="code-block">
+<span class="fn">*</span> {
+  <span class="kw">margin</span>: 0;
+  <span class="kw">padding</span>: 0;
+  <span class="kw">box-sizing</span>: border-box;
+}
+          </div>
+          <div class="note-tags" style="margin-top:10px;"><span class="note-key">CSS</span><span class="note-key">reset</span></div>
+        </div>
+
+        <div class="snippet-card">
+          <div class="snippet-title">🌐 HTML link template</div>
+          <div class="snippet-desc"><code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">target="_blank"</code> opens in new tab. Always add <code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">rel</code> for security.</div>
+          <div class="code-block">
+<span class="tag">&lt;a</span>
+  <span class="fn">href</span>=<span class="str">"https://example.com"</span>
+  <span class="fn">target</span>=<span class="str">"_blank"</span>
+  <span class="fn">rel</span>=<span class="str">"noopener noreferrer"</span>
+<span class="tag">&gt;</span>
+  link text here
+<span class="tag">&lt;/a&gt;</span>
+          </div>
+          <div class="note-tags" style="margin-top:10px;"><span class="note-key">HTML</span><span class="note-key">links</span></div>
+        </div>
+
+        <div class="snippet-card">
+          <div class="snippet-title">🎨 CSS custom properties</div>
+          <div class="snippet-desc">Define colors once at the top, use everywhere — easier to update later.</div>
+          <div class="code-block">
+<span class="fn">:root</span> {
+  <span class="kw">--sage</span>: <span class="str">#7BAE7F</span>;
+  <span class="kw">--cream</span>: <span class="str">#FDFAF5</span>;
+  <span class="kw">--text</span>: <span class="str">#3A3228</span>;
+}
+<span class="fn">body</span> {
+  <span class="kw">background</span>: <span class="fn">var</span>(--cream);
+  <span class="kw">color</span>: <span class="fn">var</span>(--text);
+}
+          </div>
+          <div class="note-tags" style="margin-top:10px;"><span class="note-key">CSS</span><span class="note-key">variables</span></div>
+        </div>
+
+        <div class="snippet-card">
+          <div class="snippet-title">🖼️ HTML image with alt text</div>
+          <div class="snippet-desc"><code style="background:rgba(58,50,40,0.08);padding:1px 5px;border-radius:4px;font-size:12px;">alt</code> text is required for accessibility — describe what's in the image.</div>
+          <div class="code-block">
+<span class="tag">&lt;img</span>
+  <span class="fn">src</span>=<span class="str">"cat.jpg"</span>
+  <span class="fn">alt</span>=<span class="str">"a tabby cat asleep"</span>
+  <span class="fn">width</span>=<span class="str">"300"</span>
+<span class="tag">&gt;</span>
+          </div>
+          <div class="note-tags" style="margin-top:10px;"><span class="note-key">HTML</span><span class="note-key">accessibility</span></div>
+        </div>
+
+        <div class="snippet-card">
+          <div class="snippet-title">⚛️ React functional component</div>
+          <div class="snippet-desc">The basic building block of every React app. Every component returns JSX.</div>
+          <div class="code-block">
+<span class="kw">function</span> <span class="fn">Button</span>({ label }) {
+  <span class="kw">return</span> (
+    <span class="tag">&lt;button</span>
+      <span class="fn">onClick</span>={() =&gt; <span class="fn">alert</span>(<span class="str">"clicked!"</span>)}
+    <span class="tag">&gt;</span>
+      {label}
+    <span class="tag">&lt;/button&gt;</span>
+  );
+}
+          </div>
+          <div class="note-tags" style="margin-top:10px;"><span class="note-key">React</span><span class="note-key">JSX</span><span class="note-key">props</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────────────── TRACKER TAB ──────────────────── -->
+    <div class="tab-content" id="tab-tracker">
+      <div class="cal-streak">
+        <div class="cal-streak-num" id="tr-streak">0🔥</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--br);">day streak</div>
+          <div class="cal-streak-info" id="tr-sessions">0 activities logged this month</div>
+        </div>
+        <div style="margin-left:auto;text-align:right;">
+          <div style="font-size:11px;color:var(--br-m);">drop activities onto days ✦</div>
+          <div style="font-size:11px;color:var(--br-m);">click a chip to remove it</div>
+        </div>
+      </div>
+      <div class="tracker-layout">
+        <div>
+          <div class="activity-palette">
+            <div class="palette-label">activities</div>
+            <div id="activity-palette-list"></div>
+          </div>
+        </div>
+        <div class="cal-wrap">
+          <div class="cal-month-nav">
+            <button class="cal-nav-btn" onclick="calPrev()">‹</button>
+            <div class="cal-month-title" id="cal-title">April 2026</div>
+            <button class="cal-nav-btn" onclick="calNext()">›</button>
+          </div>
+          <div class="cal-dow">
+            <div class="cal-dow-cell">Sun</div><div class="cal-dow-cell">Mon</div><div class="cal-dow-cell">Tue</div>
+            <div class="cal-dow-cell">Wed</div><div class="cal-dow-cell">Thu</div><div class="cal-dow-cell">Fri</div><div class="cal-dow-cell">Sat</div>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────────────── NOTEBOOK TAB ──────────────────── -->
+    <div class="tab-content" id="tab-notebook">
+
+      <!-- SHELF VIEW -->
+      <div id="nb-view-shelf">
+        <div class="section-head"><div class="section-title">my notebooks</div><span class="section-badge badge-sage">✦ folders</span></div>
+        <div class="folder-shelf-grid" id="folder-shelf-grid"></div>
+      </div>
+
+      <!-- FOLDER VIEW -->
+      <div id="nb-view-folder" style="display:none">
+        <div class="nb-breadcrumb">
+          <span class="nb-back" onclick="nbShowView('shelf')">← all folders</span>
+          <span class="nb-crumb-sep">›</span>
+          <span class="nb-crumb-cur" id="nb-folder-crumb">folder</span>
+        </div>
+        <div class="nb-book-grid" id="nb-book-grid"></div>
+      </div>
+
+      <!-- BOOK VIEW -->
+      <div id="nb-view-book" style="display:none">
+        <div class="nb-breadcrumb">
+          <span class="nb-back" onclick="nbShowView('folder')">← notebooks</span>
+          <span class="nb-crumb-sep">›</span>
+          <span class="nb-crumb-cur" id="nb-book-crumb">notebook</span>
+        </div>
+
+        <!-- Closed book state -->
+        <div id="nb-book-closed">
+          <div class="book-scene-wrap">
+            <div class="closed-book-3d" id="the-closed-book" onclick="animateBookOpen()">
+              <div class="book-3d-pages"></div>
+              <div class="book-3d-spine" id="book-3d-spine"></div>
+              <div class="book-3d-cover" id="book-3d-cover">
+                <div class="book-3d-front" id="book-3d-front">
+                  <div style="font-size:44px;margin-bottom:12px;" id="bc-emoji-disp">📔</div>
+                  <input class="cover-editable" id="bc-title-input" style="font-size:22px;font-weight:600;" placeholder="notebook title..." onclick="event.stopPropagation()">
+                  <input class="cover-editable" id="bc-sub-input" style="font-size:14px;opacity:0.7;margin-top:6px;" placeholder="subtitle..." onclick="event.stopPropagation()">
+                  <div class="cover-open-hint">tap cover to open ✦</div>
+                </div>
+                <div class="book-3d-back"></div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:4px;">
+            <span style="font-size:11px;color:var(--br-l);">click the cover to open · drag to tilt</span>
+          </div>
+        </div>
+
+        <!-- Open book spread state -->
+        <div id="nb-book-open" style="display:none">
+          <div class="nb-open-toolbar">
+            <span class="nb-tool-label">font</span>
+            <select class="nb-font-sel" id="nb-font-fam" onchange="applyNbStyle()">
+              <option value="'Caveat',cursive">Caveat (handwriting)</option>
+              <option value="'Nunito',sans-serif">Nunito (clean)</option>
+              <option value="'Playfair Display',serif">Playfair (elegant)</option>
+              <option value="'Courier New',monospace">Courier (mono)</option>
+              <option value="Georgia,serif">Georgia (classic)</option>
+            </select>
+            <input type="range" class="nb-tool-range" id="nb-font-size" min="12" max="26" value="16" oninput="applyNbStyle()">
+            <span class="nb-zoom-val" id="nb-fsize-val">16px</span>
+            <div class="nb-tool-sep"></div>
+            <span class="nb-tool-label">color</span>
+            <input type="color" class="nb-tool-color" id="nb-font-color" value="#3A3228" oninput="applyNbStyle()">
+            <div class="nb-tool-sep"></div>
+            <span class="nb-tool-label">zoom</span>
+            <input type="range" class="nb-tool-range" id="nb-zoom" min="55" max="105" value="80" oninput="applyZoom()">
+            <span class="nb-zoom-val" id="nb-zoom-val">80%</span>
+          </div>
+          <div class="open-spread-wrap">
+            <button class="page-nav-side" id="nav-prev" onclick="spreadTurnBack()">‹</button>
+            <div class="open-book-spread">
+              <div class="spread-scale-wrap" id="spread-scale-wrap">
+              <div class="spread-inner" id="spread-inner">
+                <div class="book-page-l" id="spread-left-pg">
+                  <div class="page-lines"></div>
+                  <div class="page-content-area">
+                    <input class="page-title-input" id="sl-title" placeholder="page title..." oninput="saveSpread()">
+                    <textarea class="page-body-input" id="sl-body" placeholder="notes..." oninput="saveSpread()"></textarea>
+                  </div>
+                  <div class="page-num" id="sl-num">1</div>
+                </div>
+                <div class="book-spine-center"></div>
+                <div class="book-page-r" id="spread-right-pg">
+                  <div class="page-lines"></div>
+                  <div class="page-content-area">
+                    <input class="page-title-input" id="sr-title" placeholder="page title..." oninput="saveSpread()">
+                    <textarea class="page-body-input" id="sr-body" placeholder="notes..." oninput="saveSpread()"></textarea>
+                  </div>
+                  <div class="page-num" id="sr-num">2</div>
+                </div>
+                <!-- Animated flipper -->
+                <div class="page-flipper-el" id="page-flipper-el" style="display:none">
+                  <div class="flipper-face"><div class="page-lines"></div><div style="padding:16px 18px;font-family:'Caveat',cursive;font-size:16px;color:var(--br);" id="flipper-face-txt"></div></div>
+                  <div class="flipper-back-face"><div class="page-lines"></div><div style="padding:16px 18px;font-family:'Caveat',cursive;font-size:16px;color:var(--br);" id="flipper-back-txt"></div></div>
+                </div>
+              </div><!-- /spread-inner -->
+              </div><!-- /spread-scale-wrap -->
+            </div><!-- /open-book-spread -->
+            <button class="page-nav-side" id="nav-next" onclick="spreadTurnForward()">›</button>
+          </div><!-- /open-spread-wrap -->
+          <div class="spread-bottom">
+            <div class="spread-page-info" id="spread-info">spread 1</div>
+            <div style="display:flex;gap:8px;">
+              <button class="spread-add-btn" onclick="addSpread()">+ new page</button>
+              <button class="spread-add-btn" onclick="closeToBook()">↩ close book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals -->
+      <div id="nb-modal" class="nb-modal-overlay" style="display:none" onclick="if(event.target===this)closeNbModal()">
+        <div class="nb-modal">
+          <h3 id="nb-modal-title">new folder</h3>
+          <input id="nb-modal-name" placeholder="name..." maxlength="30">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--br-l);margin-bottom:8px;" id="nb-color-label">colour</div>
+          <div class="nb-color-row" id="nb-color-row"></div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--br-l);margin-bottom:8px;" id="nb-emoji-label">emoji</div>
+          <div class="nb-emoji-row" id="nb-emoji-row"></div>
+          <div class="nb-modal-btns">
+            <button class="nb-modal-cancel" onclick="closeNbModal()">cancel</button>
+            <button class="nb-modal-ok" onclick="confirmNbModal()">create ✦</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────────────── CALCULATOR TAB ──────────────────── -->
+    <div class="tab-content" id="tab-calculator">
+      <div class="section-head"><div class="section-title">calculator</div><span class="section-badge badge-sage">science mode</span></div>
+      <div class="calc-layout">
+        <div>
+          <div class="calc-wrap">
+            <div class="calc-brand">✦ code garden calc ✦</div>
+            <div class="calc-display">
+              <div class="calc-expr" id="calc-expr"></div>
+              <div class="calc-result" id="calc-result">0</div>
+            </div>
+            <div class="calc-grid">
+              <button class="calc-btn btn-ac" onclick="calcAC()">AC</button>
+              <button class="calc-btn btn-op" onclick="calcInput('(')">(</button>
+              <button class="calc-btn btn-op" onclick="calcInput(')')">)</button>
+              <button class="calc-btn btn-op" onclick="calcInput('%')">%</button>
+
+              <button class="calc-btn btn-op" onclick="calcInput('Math.sqrt(')">√</button>
+              <button class="calc-btn btn-op" onclick="calcInput('**2')">x²</button>
+              <button class="calc-btn btn-op" onclick="calcInput('**')">xʸ</button>
+              <button class="calc-btn btn-op" onclick="calcInput('/')">÷</button>
+
+              <button class="calc-btn btn-num" onclick="calcInput('7')">7</button>
+              <button class="calc-btn btn-num" onclick="calcInput('8')">8</button>
+              <button class="calc-btn btn-num" onclick="calcInput('9')">9</button>
+              <button class="calc-btn btn-op" onclick="calcInput('*')">×</button>
+
+              <button class="calc-btn btn-num" onclick="calcInput('4')">4</button>
+              <button class="calc-btn btn-num" onclick="calcInput('5')">5</button>
+              <button class="calc-btn btn-num" onclick="calcInput('6')">6</button>
+              <button class="calc-btn btn-op" onclick="calcInput('-')">−</button>
+
+              <button class="calc-btn btn-num" onclick="calcInput('1')">1</button>
+              <button class="calc-btn btn-num" onclick="calcInput('2')">2</button>
+              <button class="calc-btn btn-num" onclick="calcInput('3')">3</button>
+              <button class="calc-btn btn-op" onclick="calcInput('+')">+</button>
+
+              <button class="calc-btn btn-num" onclick="calcInput('0')" style="grid-column:span 2;">0</button>
+              <button class="calc-btn btn-num" onclick="calcInput('.')">.</button>
+              <button class="calc-btn btn-op" onclick="calcBackspace()" style="font-size:16px;">⌫</button>
+
+              <button class="calc-btn btn-eq" onclick="calcEquals()">=</button>
+              <button class="calc-btn btn-op" onclick="calcInput('Math.PI')" style="font-size:13px;">π</button>
+              <button class="calc-btn btn-op" onclick="calcInput('Math.E')" style="font-size:13px;">e</button>
+            </div>
+          </div>
+          <div class="calc-history" style="margin-top:14px;">
+            <div class="side-label">history</div>
+            <div class="history-list" id="calc-history-list"><div style="font-size:12px;color:var(--br-l);padding:8px 0;">no calculations yet</div></div>
+          </div>
+        </div>
+        <div class="calc-notes-wrap">
+          <div class="calc-note-card">
+            <div class="calc-note-title">📐 useful formulas</div>
+            <div class="formula-list">
+              <div class="formula-row"><span class="formula-name">circle area</span><span class="formula-val">π × r²</span></div>
+              <div class="formula-row"><span class="formula-name">Pythagorean</span><span class="formula-val">a² + b² = c²</span></div>
+              <div class="formula-row"><span class="formula-name">golden ratio</span><span class="formula-val">φ ≈ 1.618</span></div>
+              <div class="formula-row"><span class="formula-name">percentage</span><span class="formula-val">part ÷ whole × 100</span></div>
+              <div class="formula-row"><span class="formula-name">hex → decimal</span><span class="formula-val">parseInt("FF", 16)</span></div>
+              <div class="formula-row"><span class="formula-name">viewport em</span><span class="formula-val">px ÷ 16 = em</span></div>
+            </div>
+          </div>
+          <div class="calc-note-card">
+            <div class="calc-note-title">🎨 colour math</div>
+            <div class="formula-list">
+              <div class="formula-row"><span class="formula-name">RGB max</span><span class="formula-val">0 – 255 each</span></div>
+              <div class="formula-row"><span class="formula-name">opacity %</span><span class="formula-val">decimal × 100</span></div>
+              <div class="formula-row"><span class="formula-name">hue circle</span><span class="formula-val">360°</span></div>
+              <div class="formula-row"><span class="formula-name">complement</span><span class="formula-val">hue + 180°</span></div>
+              <div class="formula-row"><span class="formula-name">triadic step</span><span class="formula-val">hue + 120°</span></div>
+            </div>
+          </div>
+          <div class="calc-note-card">
+            <div class="calc-note-title">💻 dev shortcuts</div>
+            <div class="formula-list">
+              <div class="formula-row"><span class="formula-name">1rem</span><span class="formula-val">= 16px</span></div>
+              <div class="formula-row"><span class="formula-name">1vw</span><span class="formula-val">= 1% viewport width</span></div>
+              <div class="formula-row"><span class="formula-name">2⁸</span><span class="formula-val">= 256</span></div>
+              <div class="formula-row"><span class="formula-name">2¹⁶</span><span class="formula-val">= 65,536</span></div>
+              <div class="formula-row"><span class="formula-name">aspect 16:9</span><span class="formula-val">h = w × 9 ÷ 16</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────────────── PLAYGROUND TAB ──────────────────── -->
+    <div class="tab-content" id="tab-playground">
+      <div class="section-head"><div class="section-title">flexbox simulator</div><span class="section-badge badge-sage">interactive ✦</span></div>
+      <div class="playground-grid">
+        <div class="flex-controls">
+          <div class="ctrl-group"><div class="ctrl-label">flex-direction</div><select class="ctrl-select" id="p-direction" onchange="updateFlex()"><option>row</option><option>row-reverse</option><option>column</option><option>column-reverse</option></select></div>
+          <div class="ctrl-group"><div class="ctrl-label">justify-content</div><select class="ctrl-select" id="p-justify" onchange="updateFlex()"><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></div>
+          <div class="ctrl-group"><div class="ctrl-label">align-items</div><select class="ctrl-select" id="p-align" onchange="updateFlex()"><option>stretch</option><option>flex-start</option><option>flex-end</option><option>center</option><option>baseline</option></select></div>
+          <div class="ctrl-group"><div class="ctrl-label">flex-wrap</div><select class="ctrl-select" id="p-wrap" onchange="updateFlex()"><option>nowrap</option><option>wrap</option><option>wrap-reverse</option></select></div>
+          <div class="ctrl-group"><div class="ctrl-label">gap</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="p-gap" min="0" max="40" value="10" oninput="updateFlex()"><span class="ctrl-val" id="p-gap-val">10px</span></div></div>
+          <div class="ctrl-group"><div class="ctrl-label">padding (container)</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="p-pad" min="0" max="40" value="12" oninput="updateFlex()"><span class="ctrl-val" id="p-pad-val">12px</span></div></div>
+          <div class="ctrl-group"><div class="ctrl-label">items</div><div class="ctrl-row item-count-btns"><button class="icb" onclick="changeItems(-1)">−</button><span id="p-item-count" style="font-size:13px;font-weight:700;color:var(--br);min-width:20px;text-align:center;">4</span><button class="icb" onclick="changeItems(1)">+</button></div></div>
+          <div class="ctrl-group"><div class="ctrl-label">item size</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="p-size" min="36" max="120" value="64" oninput="updateFlex()"><span class="ctrl-val" id="p-size-val">64px</span></div></div>
+        </div>
+        <div class="flex-preview-wrap">
+          <div class="flex-stage" id="flex-stage"><div class="flex-container" id="flex-container"></div></div>
+          <div class="flex-css-out" id="flex-css-out"></div>
+        </div>
+      </div>
+      <div class="item-controls" style="margin-bottom:28px;">
+        <div class="section-head" style="margin-bottom:0;"><div class="section-title" style="font-size:15px;">selected item properties</div><span style="font-size:11px;color:var(--br-m);">click an item above to select it</span></div>
+        <div class="item-ctrl-grid">
+          <div class="item-prop-row"><div class="ctrl-label">flex-grow</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="i-grow" min="0" max="5" value="0" step="1" oninput="updateItem()"><span class="ctrl-val" id="i-grow-val">0</span></div></div>
+          <div class="item-prop-row"><div class="ctrl-label">flex-shrink</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="i-shrink" min="0" max="5" value="1" step="1" oninput="updateItem()"><span class="ctrl-val" id="i-shrink-val">1</span></div></div>
+          <div class="item-prop-row"><div class="ctrl-label">flex-basis</div><select class="ctrl-select" id="i-basis" onchange="updateItem()"><option value="auto">auto</option><option value="0">0</option><option value="50px">50px</option><option value="100px">100px</option><option value="150px">150px</option><option value="200px">200px</option></select></div>
+          <div class="item-prop-row"><div class="ctrl-label">align-self</div><select class="ctrl-select" id="i-self" onchange="updateItem()"><option value="auto">auto</option><option value="flex-start">flex-start</option><option value="flex-end">flex-end</option><option value="center">center</option><option value="stretch">stretch</option></select></div>
+          <div class="item-prop-row"><div class="ctrl-label">margin</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="i-margin" min="0" max="24" value="0" oninput="updateItem()"><span class="ctrl-val" id="i-margin-val">0px</span></div></div>
+          <div class="item-prop-row"><div class="ctrl-label">padding</div><div class="ctrl-row"><input type="range" class="ctrl-range" id="i-padding" min="0" max="24" value="0" oninput="updateItem()"><span class="ctrl-val" id="i-padding-val">0px</span></div></div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-head"><div class="section-title">snippet library</div><span class="section-badge badge-lav">copy & paste ready</span></div>
+      <div class="snip-filter">
+        <button class="snip-filter-btn active" onclick="filterSnips('all',this)">✦ all</button>
+        <button class="snip-filter-btn" onclick="filterSnips('css',this)">🎨 CSS</button>
+        <button class="snip-filter-btn" onclick="filterSnips('html',this)">🌐 HTML</button>
+        <button class="snip-filter-btn" onclick="filterSnips('js',this)">⚡ JS</button>
+      </div>
+      <div class="snip-library" id="snip-library"></div>
+    </div>
+
+    <!-- ──────────────────── EDITOR TAB ──────────────────── -->
+    <div class="tab-content" id="tab-editor">
+      <div class="section-head"><div class="section-title">code editor</div><span class="section-badge badge-lav">HTML · CSS · JS</span></div>
+      <div class="editor-layout">
+        <div class="editor-left">
+          <div class="editor-lang-tabs">
+            <button class="ed-tab active" onclick="switchEdLang('html',this)">🌐 HTML</button>
+            <button class="ed-tab" onclick="switchEdLang('css',this)">🎨 CSS</button>
+            <button class="ed-tab" onclick="switchEdLang('js',this)">⚡ JS</button>
+          </div>
+          <textarea class="ed-code" id="ed-html" spellcheck="false" placeholder="<!-- your HTML here -->" onkeydown="edTab(event)"></textarea>
+          <textarea class="ed-code" id="ed-css" style="display:none" spellcheck="false" placeholder="/* your CSS here */" onkeydown="edTab(event)"></textarea>
+          <textarea class="ed-code" id="ed-js" style="display:none" spellcheck="false" placeholder="// your JavaScript here" onkeydown="edTab(event)"></textarea>
+          <div class="editor-toolbar">
+            <button class="run-btn" onclick="runCode()">▶ run</button>
+            <button class="clear-btn" onclick="formatCode()">✨ format</button>
+            <button class="clear-btn" onclick="clearEditor()">clear</button>
+            <button class="clear-btn" onclick="loadTemplate()">starter ↗</button>
+            <span class="ed-size-note">tab = indent · ctrl+enter = run</span>
+          </div>
+        </div>
+        <div class="editor-right">
+          <div class="preview-topbar">
+            <div class="preview-dot" style="background:#FF6B6B;"></div>
+            <div class="preview-dot" style="background:#FFD93D;"></div>
+            <div class="preview-dot" style="background:#6BCB77;"></div>
+            <span class="preview-label">preview</span>
+            <button class="preview-refresh" onclick="runCode()">↺ refresh</button>
+          </div>
+          <iframe class="preview-frame" id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+      </div>
+      <div class="editor-tips">
+        <div class="ed-tip"><div class="ed-tip-title">🌐 HTML tab</div><div class="ed-tip-body">Write your full HTML here including &lt;head&gt; and &lt;body&gt;, or just the content — the runner wraps it automatically.</div></div>
+        <div class="ed-tip"><div class="ed-tip-title">🎨 CSS tab</div><div class="ed-tip-body">Styles are injected into a &lt;style&gt; tag inside your preview. Works alongside any styles you put in your HTML tab.</div></div>
+        <div class="ed-tip"><div class="ed-tip-title">⚡ JS tab</div><div class="ed-tip-body">Scripts run after the page loads. Use console.log() — check your browser DevTools console to see output.</div></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const HABITS = [
+  { icon: '🌿', label: 'Codedex lesson' },
+  { icon: '🚀', label: 'Boot.dev chapter' },
+  { icon: '📋', label: 'Write a snippet' },
+  { icon: '🔁', label: 'Review past notes' },
+  { icon: '🏗️', label: 'Build something' },
+];
+const DAYS = 7;
+const storageKey = 'code-garden-habits';
+
+function getState() { try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch { return {}; } }
+function saveState(s) { try { localStorage.setItem(storageKey, JSON.stringify(s)); } catch {} }
+
+function renderHabits() {
+  const state = getState();
+  const tbody = document.getElementById('habit-body');
+  if (!tbody) return;
+  tbody.innerHTML = HABITS.map((h, hi) => {
+    const cells = Array.from({ length: DAYS }, (_, di) => {
+      const key = `${hi}-${di}`, checked = state[key];
+      return `<td><div class="check-cell ${checked ? 'checked' : ''}" onclick="toggle('${key}', this)">${checked ? '✓' : ''}</div></td>`;
+    }).join('');
+    return `<tr><td><span style="margin-right:6px;">${h.icon}</span>${h.label}</td>${cells}</tr>`;
+  }).join('');
+}
+
+function toggle(key, el) {
+  const state = getState(); state[key] = !state[key]; saveState(state);
+  el.classList.toggle('checked'); el.textContent = state[key] ? '✓' : '';
+}
+
+function renderMonth() {
+  const grid = document.getElementById('month-grid');
+  if (!grid) return;
+  const pattern = [1,1,0,1,1,0,0,1,1,1,0,1,1,1,2,2,1,2,2,1,2,2,2,2,0,2,0,0,3,0];
+  const classes = ['','done','done great','today'];
+  grid.innerHTML = pattern.map(v => `<div class="day-dot ${classes[v] || ''}"></div>`).join('');
+}
+
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.side-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+  animateProgress();
+  if (name === 'notebook' && !nbInited) { nbInit(); nbInited = true; }
+}
+
+function animateProgress() {
+  setTimeout(() => {
+    document.querySelectorAll('.progress-fill').forEach(el => {
+      const p = el.dataset.progress;
+      if (p !== undefined) el.style.width = p + '%';
+    });
+  }, 80);
+}
+
+/* ────────── NOTEBOOK V2 ────────── */
+const NB2_KEY = 'code-garden-nb2';
+let nbInited = false, currentFolderId = null, currentNotebookId = null, currentSpread = 0, nbBookOpen = false;
+const COVER_COLORS = ['#3D5A40','#6B4E71','#8B4A1E','#2E4A7A','#7A3B3B','#4A6B5A','#5C4A2A','#1A3A4A'];
+const FOLDER_COLORS = ['#7BAE7F','#C4A7CB','#E8A87C','#D49898','#8FB8D8','#B5C98E','#D4A5BE','#9EBDD4'];
+const FOLDER_EMOJIS = ['📁','🌿','🚀','⚡','🎨','📚','🔬','🏗️'];
+const BOOK_EMOJIS = ['📔','📓','📒','📕','📗','📘','📙','🗒️'];
+
+function nbGetData() {
+  try { return JSON.parse(localStorage.getItem(NB2_KEY)) || nbDefaultData(); } catch { return nbDefaultData(); }
+}
+function nbSaveData(d) { try { localStorage.setItem(NB2_KEY, JSON.stringify(d)); } catch {} }
+function nbDefaultData() {
+  return {
+    folders: [
+      { id: 'f1', name: 'Web Dev', color: '#7BAE7F', emoji: '🌿' },
+      { id: 'f2', name: 'Boot.dev', color: '#C4A7CB', emoji: '🚀' },
+    ],
+    notebooks: [
+      { id: 'n1', folderId: 'f1', title: 'HTML Notes', subtitle: 'Codedex · Spring 2026', coverColor: '#3D5A40', emoji: '🌐',
+        spreads: [
+          { id: 's1', leftTitle: 'ch.1 basics', leftBody: '★ DOCTYPE goes at the very top\n→ <html> wraps everything\n→ <head> = invisible metadata\n→ <body> = what users see\n\n[ ] practice building a page from scratch\n? what does lang="en" actually do?', rightTitle: 'common tags', rightBody: '→ <h1>–<h6> headings\n→ <p> paragraph\n→ <a href=""> link\n→ <img src="" alt="">\n→ <strong> bold\n→ <em> italic\n\n⚡ semantic = meaningful!' },
+          { id: 's2', leftTitle: 'lists', leftBody: '<ul> = unordered (bullets)\n<ol> = ordered (numbers)\n<li> = each item\n\n[ ] make a nav menu with <ul>\n[ ] try nested lists', rightTitle: 'attributes', rightBody: 'href — where links go\nsrc — image source\nalt — image description\nclass — CSS target\nid — unique identifier\n\n★ alt text is accessibility!' }
+        ]
+      },
+      { id: 'n2', folderId: 'f2', title: 'Python Notes', subtitle: 'Boot.dev path', coverColor: '#6B4E71', emoji: '🐍',
+        spreads: [{ id: 's1', leftTitle: 'variables', leftBody: 'name = "macie"  # str\nage = 22        # int\nscore = 9.8     # float\nis_artist = True # bool\n\nno type declarations needed!', rightTitle: 'functions', rightBody: 'def greet(name):\n    return f"hello {name}!"\n\ndef add(a, b):\n    return a + b\n\n★ indent = 4 spaces (required!)' }]
+      }
+    ]
+  };
+}
+
+function nbInit() {
+  nbShowView('shelf');
+}
+
+function nbShowView(view) {
+  document.getElementById('nb-view-shelf').style.display = 'none';
+  document.getElementById('nb-view-folder').style.display = 'none';
+  document.getElementById('nb-view-book').style.display = 'none';
+  if (view === 'shelf') { document.getElementById('nb-view-shelf').style.display = ''; renderShelf(); }
+  if (view === 'folder') { document.getElementById('nb-view-folder').style.display = ''; renderFolderView(); }
+  if (view === 'book') { document.getElementById('nb-view-book').style.display = ''; renderBookView(); }
+}
+
+function renderShelf() {
+  const d = nbGetData();
+  const grid = document.getElementById('folder-shelf-grid');
+  const folderHTML = d.folders.map(f => {
+    const count = d.notebooks.filter(n => n.folderId === f.id).length;
+    return `<div class="folder-card" onclick="openFolder('${f.id}')" style="border-top-color:${f.color};">
+      <div style="position:absolute;top:0;left:0;right:0;height:5px;background:${f.color};border-radius:14px 14px 0 0;"></div>
+      <div class="folder-emoji">${f.emoji}</div>
+      <div class="folder-name">${f.name}</div>
+      <div class="folder-count">${count} notebook${count !== 1 ? 's' : ''}</div>
+    </div>`;
+  }).join('');
+  grid.innerHTML = folderHTML + `<button class="folder-new-btn" onclick="openNbModal('folder')">+ new folder</button>`;
+}
+
+function openFolder(fId) {
+  currentFolderId = fId;
+  nbShowView('folder');
+}
+
+function renderFolderView() {
+  const d = nbGetData();
+  const folder = d.folders.find(f => f.id === currentFolderId);
+  document.getElementById('nb-folder-crumb').textContent = folder ? folder.name : 'folder';
+  const books = d.notebooks.filter(n => n.folderId === currentFolderId);
+  const grid = document.getElementById('nb-book-grid');
+  const booksHTML = books.map(b => `
+    <div class="book-thumb" onclick="openNotebook('${b.id}')">
+      <div class="book-thumb-visual" style="background:${b.coverColor};">
+        <div class="book-thumb-spine" style="background:rgba(0,0,0,0.3);"></div>
+        <div class="book-thumb-pages"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;">
+          <div class="book-thumb-emoji">${b.emoji}</div>
+          <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,0.9);text-align:center;line-height:1.3;max-width:64px;word-break:break-word;">${b.title}</div>
+        </div>
+      </div>
+      <div class="book-thumb-title">${b.title}</div>
+    </div>`).join('');
+  grid.innerHTML = booksHTML + `<div class="book-new-thumb" onclick="openNbModal('notebook')"><div class="book-new-visual">+</div><div class="book-thumb-title" style="color:var(--sage-d);">new notebook</div></div>`;
+}
+
+function openNotebook(nId) {
+  currentNotebookId = nId;
+  currentSpread = 0;
+  nbBookOpen = false;
+  nbShowView('book');
+}
+
+function renderBookView() {
+  const d = nbGetData();
+  const nb = d.notebooks.find(n => n.id === currentNotebookId);
+  if (!nb) return;
+  document.getElementById('nb-book-crumb').textContent = nb.title;
+  document.getElementById('bc-emoji-disp').textContent = nb.emoji;
+  document.getElementById('bc-title-input').value = nb.title;
+  document.getElementById('bc-sub-input').value = nb.subtitle || '';
+  document.getElementById('book-3d-front').style.background = nb.coverColor;
+  document.getElementById('book-3d-spine').style.background = nb.coverColor;
+  document.getElementById('nb-book-closed').style.display = '';
+  document.getElementById('nb-book-open').style.display = 'none';
+  // Save cover edits
+  document.getElementById('bc-title-input').oninput = () => { nb.title = document.getElementById('bc-title-input').value; document.getElementById('nb-book-crumb').textContent = nb.title; nbSaveData(d); };
+  document.getElementById('bc-sub-input').oninput = () => { nb.subtitle = document.getElementById('bc-sub-input').value; nbSaveData(d); };
+}
+
+function animateBookOpen() {
+  const cover = document.getElementById('book-3d-cover');
+  cover.classList.add('opening');
+  setTimeout(() => {
+    document.getElementById('nb-book-closed').style.display = 'none';
+    document.getElementById('nb-book-open').style.display = '';
+    cover.classList.remove('opening');
+    nbBookOpen = true;
+    loadSpread(currentSpread);
+  }, 900);
+}
+
+function closeToBook() {
+  document.getElementById('nb-book-open').style.display = 'none';
+  document.getElementById('nb-book-closed').style.display = '';
+  nbBookOpen = false;
+}
+
+function loadSpread(idx) {
+  const d = nbGetData();
+  const nb = d.notebooks.find(n => n.id === currentNotebookId);
+  if (!nb) return;
+  while (nb.spreads.length <= idx) nb.spreads.push({ id: 's'+Date.now()+Math.random(), leftTitle:'', leftBody:'', rightTitle:'', rightBody:'' });
+  const s = nb.spreads[idx];
+  document.getElementById('sl-title').value = s.leftTitle || '';
+  document.getElementById('sl-body').value = s.leftBody || '';
+  document.getElementById('sr-title').value = s.rightTitle || '';
+  document.getElementById('sr-body').value = s.rightBody || '';
+  document.getElementById('sl-num').textContent = idx * 2 + 1;
+  document.getElementById('sr-num').textContent = idx * 2 + 2;
+  document.getElementById('spread-info').textContent = `spread ${idx+1} of ${nb.spreads.length}`;
+  document.getElementById('nav-prev').disabled = idx === 0;
+  document.getElementById('nav-next').disabled = idx >= nb.spreads.length - 1;
+  nbSaveData(d);
+}
+
+function saveSpread() {
+  const d = nbGetData();
+  const nb = d.notebooks.find(n => n.id === currentNotebookId);
+  if (!nb || !nb.spreads[currentSpread]) return;
+  const s = nb.spreads[currentSpread];
+  s.leftTitle = document.getElementById('sl-title').value;
+  s.leftBody = document.getElementById('sl-body').value;
+  s.rightTitle = document.getElementById('sr-title').value;
+  s.rightBody = document.getElementById('sr-body').value;
+  nbSaveData(d);
+}
+
+function spreadTurnForward() {
+  const d = nbGetData();
+  const nb = d.notebooks.find(n => n.id === currentNotebookId);
+  if (!nb || currentSpread >= nb.spreads.length - 1) return;
+  saveSpread();
+  doPageFlip('fwd', () => { currentSpread++; loadSpread(currentSpread); });
+}
+
+function spreadTurnBack() {
+  if (currentSpread <= 0) return;
+  saveSpread();
+  doPageFlip('bck', () => { currentSpread--; loadSpread(currentSpread); });
+}
+
+function doPageFlip(dir, callback) {
+  const flipper = document.getElementById('page-flipper-el');
+  const faceTxt = document.getElementById('flipper-face-txt');
+  const backTxt = document.getElementById('flipper-back-txt');
+  faceTxt.textContent = document.getElementById('sr-title').value + '\n' + document.getElementById('sr-body').value;
+  backTxt.textContent = '';
+  flipper.style.display = '';
+  flipper.classList.remove('flip-fwd','flip-bck');
+  void flipper.offsetWidth;
+  flipper.classList.add(dir === 'fwd' ? 'flip-fwd' : 'flip-bck');
+  setTimeout(() => { callback(); flipper.style.display = 'none'; flipper.classList.remove('flip-fwd','flip-bck'); }, 680);
+}
+
+function addSpread() {
+  const d = nbGetData();
+  const nb = d.notebooks.find(n => n.id === currentNotebookId);
+  if (!nb) return;
+  saveSpread();
+  nb.spreads.push({ id: 's'+Date.now(), leftTitle:'', leftBody:'', rightTitle:'', rightBody:'' });
+  nbSaveData(d);
+  currentSpread = nb.spreads.length - 1;
+  loadSpread(currentSpread);
+}
+
+/* Modal */
+let nbModalMode = 'folder', nbModalColor = FOLDER_COLORS[0], nbModalEmoji = FOLDER_EMOJIS[0];
+function openNbModal(mode) {
+  nbModalMode = mode;
+  nbModalColor = mode === 'folder' ? FOLDER_COLORS[0] : COVER_COLORS[0];
+  nbModalEmoji = mode === 'folder' ? FOLDER_EMOJIS[0] : BOOK_EMOJIS[0];
+  document.getElementById('nb-modal-title').textContent = mode === 'folder' ? 'new folder' : 'new notebook';
+  document.getElementById('nb-modal-name').value = '';
+  document.getElementById('nb-color-label').textContent = mode === 'folder' ? 'accent colour' : 'cover colour';
+  const colors = mode === 'folder' ? FOLDER_COLORS : COVER_COLORS;
+  const emojis = mode === 'folder' ? FOLDER_EMOJIS : BOOK_EMOJIS;
+  document.getElementById('nb-color-row').innerHTML = colors.map(c => `<div class="nb-color-dot ${c === nbModalColor ? 'selected' : ''}" style="background:${c}" onclick="selectNbColor('${c}',this)"></div>`).join('');
+  document.getElementById('nb-emoji-row').innerHTML = emojis.map(e => `<div class="nb-emoji-opt ${e === nbModalEmoji ? 'selected' : ''}" onclick="selectNbEmoji('${e}',this)">${e}</div>`).join('');
+  document.getElementById('nb-modal').style.display = 'flex';
+  setTimeout(() => document.getElementById('nb-modal-name').focus(), 100);
+}
+function selectNbColor(c, el) { nbModalColor = c; document.querySelectorAll('.nb-color-dot').forEach(d => d.classList.remove('selected')); el.classList.add('selected'); }
+function selectNbEmoji(e, el) { nbModalEmoji = e; document.querySelectorAll('.nb-emoji-opt').forEach(d => d.classList.remove('selected')); el.classList.add('selected'); }
+function closeNbModal() { document.getElementById('nb-modal').style.display = 'none'; }
+function confirmNbModal() {
+  const name = document.getElementById('nb-modal-name').value.trim() || (nbModalMode === 'folder' ? 'new folder' : 'new notebook');
+  const d = nbGetData();
+  if (nbModalMode === 'folder') {
+    d.folders.push({ id: 'f'+Date.now(), name, color: nbModalColor, emoji: nbModalEmoji });
+    nbSaveData(d); closeNbModal(); renderShelf();
+  } else {
+    d.notebooks.push({ id: 'n'+Date.now(), folderId: currentFolderId, title: name, subtitle: '', coverColor: nbModalColor, emoji: nbModalEmoji, spreads: [{ id: 's0', leftTitle:'', leftBody:'', rightTitle:'', rightBody:'' }] });
+    nbSaveData(d); closeNbModal(); renderFolderView();
+  }
+}
+
+/* ────────── CODE EDITOR ────────── */
+const ED_KEY = 'code-garden-editor';
+let currentEdLang = 'html';
+const ED_DEFAULT = {
+  html:`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>my page</title>
+</head>
+<body>
+  <h1>hello world! 🌿</h1>
+  <p>edit me and hit <strong>▶ run</strong></p>
+  <button onclick="greet()">click me</button>
+</body>
+</html>`,
+  css:`body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #FDFAF5;
+  color: #3A3228;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+h1 { color: #3D5A40; margin-bottom: 12px; }
+button {
+  background: #7BAE7F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+button:hover { background: #3D5A40; }`,
+  js:`function greet() {
+  const name = prompt("what's your name?");
+  if (name) {
+    document.querySelector('h1').textContent = "hello, " + name + "! 🌿";
+  }
+}`
+};
+
+function switchEdLang(lang, btn) {
+  currentEdLang = lang;
+  ['html','css','js'].forEach(l => {
+    document.getElementById('ed-'+l).style.display = l === lang ? '' : 'none';
+  });
+  document.querySelectorAll('.ed-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function loadTemplate() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(ED_KEY)) || {};
+    document.getElementById('ed-html').value = saved.html || ED_DEFAULT.html;
+    document.getElementById('ed-css').value = saved.css || ED_DEFAULT.css;
+    document.getElementById('ed-js').value = saved.js || ED_DEFAULT.js;
+  } catch {
+    document.getElementById('ed-html').value = ED_DEFAULT.html;
+    document.getElementById('ed-css').value = ED_DEFAULT.css;
+    document.getElementById('ed-js').value = ED_DEFAULT.js;
+  }
+  runCode();
+}
+
+function runCode() {
+  const html = document.getElementById('ed-html').value;
+  const css = document.getElementById('ed-css').value;
+  const js = document.getElementById('ed-js').value;
+  try { localStorage.setItem(ED_KEY, JSON.stringify({html, css, js})); } catch {}
+  const frame = document.getElementById('preview-frame');
+  const isFullDoc = html.trim().toLowerCase().includes('<!doctype') || html.trim().toLowerCase().includes('<html');
+  let src;
+  if (isFullDoc) {
+    const injected = html.replace('</head>', `<style>${css}</style></head>`).replace('</body>', `<script>${js}<\/script></body>`);
+    src = injected;
+  } else {
+    src = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:'Segoe UI',sans-serif;padding:16px;margin:0;}${css}</style></head><body>${html}<script>${js}<\/script></body></html>`;
+  }
+  frame.srcdoc = src;
+}
+
+function clearEditor() {
+  document.getElementById('ed-'+currentEdLang).value = '';
+}
+
+document.addEventListener('keydown', e => {
+  // Ctrl+Enter to run
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    const tab = document.getElementById('tab-editor');
+    if (tab && tab.classList.contains('active')) { e.preventDefault(); runCode(); }
+  }
+  // Calculator keyboard
+  const calcTab = document.getElementById('tab-calculator');
+  if (!calcTab || !calcTab.classList.contains('active')) return;
+  if ('0123456789.+-*/()%'.includes(e.key)) calcInput(e.key);
+  else if (e.key === 'Enter') calcEquals();
+  else if (e.key === 'Backspace') calcBackspace();
+  else if (e.key === 'Escape') calcAC();
+});
+
+/* ────────── PLAYGROUND ────────── */
+const ITEM_COLORS = ['#7BAE7F','#C4A7CB','#E8A87C','#D49898','#8FB8D8','#B5C98E','#D4A5BE','#9EBDD4'];
+let flexItems = [], selectedItem = 0, itemCount = 4;
+
+function buildItems() {
+  const c = document.getElementById('flex-container'); if (!c) return;
+  const size = +document.getElementById('p-size').value;
+  c.innerHTML = ''; flexItems = [];
+  for (let i = 0; i < itemCount; i++) {
+    const el = document.createElement('div');
+    el.className = 'flex-item' + (i === selectedItem ? ' selected-item' : '');
+    el.style.background = ITEM_COLORS[i % ITEM_COLORS.length];
+    el.style.width = size + 'px'; el.style.height = size + 'px';
+    el.innerHTML = `<span class="item-label">${i+1}</span>`;
+    el.onclick = () => selectItem(i);
+    c.appendChild(el); flexItems.push(el);
+  }
+  document.getElementById('p-item-count').textContent = itemCount;
+  applyItemProps();
+}
+
+function selectItem(i) {
+  selectedItem = i;
+  flexItems.forEach((el, idx) => el.classList.toggle('selected-item', idx === i));
+  const el = flexItems[i];
+  document.getElementById('i-grow').value = el.dataset.grow || 0;
+  document.getElementById('i-shrink').value = el.dataset.shrink || 1;
+  document.getElementById('i-basis').value = el.dataset.basis || 'auto';
+  document.getElementById('i-self').value = el.dataset.self || 'auto';
+  document.getElementById('i-margin').value = parseInt(el.dataset.margin || 0);
+  document.getElementById('i-padding').value = parseInt(el.dataset.padding || 0);
+  ['grow','shrink'].forEach(k => document.getElementById('i-'+k+'-val').textContent = el.dataset[k] || (k==='shrink'?1:0));
+  ['margin','padding'].forEach(k => document.getElementById('i-'+k+'-val').textContent = (el.dataset[k]||0)+'px');
+}
+
+function updateItem() {
+  const grow=document.getElementById('i-grow').value, shrink=document.getElementById('i-shrink').value;
+  const basis=document.getElementById('i-basis').value, self=document.getElementById('i-self').value;
+  const margin=document.getElementById('i-margin').value, padding=document.getElementById('i-padding').value;
+  document.getElementById('i-grow-val').textContent=grow; document.getElementById('i-shrink-val').textContent=shrink;
+  document.getElementById('i-margin-val').textContent=margin+'px'; document.getElementById('i-padding-val').textContent=padding+'px';
+  const el = flexItems[selectedItem]; if (!el) return;
+  Object.assign(el.dataset,{grow,shrink,basis,self,margin,padding});
+  el.style.flexGrow=grow; el.style.flexShrink=shrink; el.style.flexBasis=basis;
+  el.style.alignSelf=self; el.style.margin=margin+'px'; el.style.padding=padding+'px';
+  updateCSSOut();
+}
+
+function applyItemProps() { flexItems.forEach(el => { el.style.flexGrow=el.dataset.grow||0; el.style.flexShrink=el.dataset.shrink||1; el.style.flexBasis=el.dataset.basis||'auto'; el.style.alignSelf=el.dataset.self||'auto'; el.style.margin=(el.dataset.margin||0)+'px'; el.style.padding=(el.dataset.padding||0)+'px'; }); }
+
+function updateFlex() {
+  const dir=document.getElementById('p-direction').value, jus=document.getElementById('p-justify').value;
+  const ali=document.getElementById('p-align').value, wrap=document.getElementById('p-wrap').value;
+  const gap=document.getElementById('p-gap').value, pad=document.getElementById('p-pad').value;
+  const size=document.getElementById('p-size').value;
+  document.getElementById('p-gap-val').textContent=gap+'px'; document.getElementById('p-pad-val').textContent=pad+'px'; document.getElementById('p-size-val').textContent=size+'px';
+  const c=document.getElementById('flex-container'); if (c) { c.style.flexDirection=dir; c.style.justifyContent=jus; c.style.alignItems=ali; c.style.flexWrap=wrap; c.style.gap=gap+'px'; c.style.padding=pad+'px'; }
+  flexItems.forEach(el => { el.style.width=size+'px'; el.style.height=size+'px'; });
+  updateCSSOut();
+}
+
+function updateCSSOut() {
+  const dir=document.getElementById('p-direction').value, jus=document.getElementById('p-justify').value, ali=document.getElementById('p-align').value;
+  const wrap=document.getElementById('p-wrap').value, gap=document.getElementById('p-gap').value, pad=document.getElementById('p-pad').value;
+  const grow=document.getElementById('i-grow').value, shrink=document.getElementById('i-shrink').value;
+  const basis=document.getElementById('i-basis').value, self=document.getElementById('i-self').value;
+  const margin=document.getElementById('i-margin').value, padding=document.getElementById('i-padding').value;
+  const p=(k,v)=>`  <span class="prop">${k}</span><span class="punc">: </span><span class="val">${v}</span><span class="punc">;</span>\n`;
+  document.getElementById('flex-css-out').innerHTML=`<span class="punc">.container {</span>\n`+p('display','flex')+p('flex-direction',dir)+p('justify-content',jus)+p('align-items',ali)+p('flex-wrap',wrap)+p('gap',gap+'px')+p('padding',pad+'px')+`<span class="punc">}</span>\n\n<span class="punc">.item-${selectedItem+1} {</span>\n`+p('flex-grow',grow)+p('flex-shrink',shrink)+p('flex-basis',basis)+(self!=='auto'?p('align-self',self):'')+(margin>0?p('margin',margin+'px'):'')+(padding>0?p('padding',padding+'px'):'')+`<span class="punc">}</span>`;
+}
+
+function changeItems(d) { itemCount=Math.max(1,Math.min(10,itemCount+d)); buildItems(); updateFlex(); selectItem(Math.min(selectedItem,itemCount-1)); }
+
+/* ────────── SNIPPET LIBRARY ────────── */
+const SNIPS = [
+  {lang:'css',title:'✨ smooth hover lift',desc:'Makes any card float up on hover.',code:`.card {\n  transition: transform 0.2s, box-shadow 0.2s;\n}\n.card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 8px 24px rgba(0,0,0,0.12);\n}`},
+  {lang:'css',title:'🎯 perfect centering',desc:'Centers anything inside a container.',code:`.parent {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}`},
+  {lang:'css',title:'🌈 gradient text',desc:'Text that shows a gradient colour.',code:`.gradient-text {\n  background: linear-gradient(135deg, #7BAE7F, #C4A7CB);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}`},
+  {lang:'css',title:'📦 auto-fit grid',desc:'Responsive card grid — no media queries.',code:`.grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 16px;\n}`},
+  {lang:'css',title:'✂️ text truncation',desc:'Cuts off long text with "..."',code:`.truncate {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  max-width: 200px;\n}`},
+  {lang:'css',title:'💫 fade-in animation',desc:'Fades an element in on load.',code:`@keyframes fadeIn {\n  from { opacity: 0; transform: translateY(8px); }\n  to   { opacity: 1; transform: translateY(0); }\n}\n.fade-in {\n  animation: fadeIn 0.4s ease forwards;\n}`},
+  {lang:'css',title:'📱 media query',desc:'Changes layout for smaller screens.',code:`@media (max-width: 768px) {\n  .container {\n    flex-direction: column;\n    padding: 16px;\n  }\n}`},
+  {lang:'css',title:'🎨 CSS variables',desc:'Define colours once, use everywhere.',code:`:root {\n  --primary: #7BAE7F;\n  --bg: #FDFAF5;\n  --text: #3A3228;\n}\n.button { background: var(--primary); }`},
+  {lang:'html',title:'📋 semantic page',desc:'Correct HTML skeleton for any page.',code:`<header>\n  <nav>...</nav>\n</header>\n<main>\n  <section>\n    <article>...</article>\n  </section>\n</main>\n<footer>...</footer>`},
+  {lang:'html',title:'📝 accessible form',desc:'Form with proper label/id pairing.',code:`<form>\n  <label for="email">Email</label>\n  <input type="email" id="email" name="email" required>\n  <button type="submit">Send</button>\n</form>`},
+  {lang:'html',title:'🖼️ responsive image',desc:'Gives browser size choices for images.',code:`<img\n  src="photo.jpg"\n  alt="describe what's shown"\n  srcset="photo-400.jpg 400w, photo-800.jpg 800w"\n  loading="lazy"\n>`},
+  {lang:'html',title:'📦 details / summary',desc:'Native HTML accordion — no JS needed.',code:`<details>\n  <summary>Click to expand</summary>\n  <p>Hidden content goes here!</p>\n</details>`},
+  {lang:'html',title:'🔗 safe external link',desc:'Prevents tab-napping security issues.',code:`<a\n  href="https://example.com"\n  target="_blank"\n  rel="noopener noreferrer"\n>Open in new tab</a>`},
+  {lang:'js',title:'🎯 querySelector',desc:'Grab elements from the DOM.',code:`const btn = document.querySelector('.my-button');\nconst cards = document.querySelectorAll('.card');\ncards.forEach(card => console.log(card.textContent));`},
+  {lang:'js',title:'⚡ event listener',desc:'Listen for any user action.',code:`const btn = document.querySelector('#my-btn');\nbtn.addEventListener('click', (e) => {\n  console.log('clicked!', e.target);\n});\n// click, input, change, keydown, submit...`},
+  {lang:'js',title:'🔄 classList',desc:'Add, remove, toggle CSS classes.',code:`const el = document.querySelector('.card');\nel.classList.add('active');\nel.classList.remove('active');\nel.classList.toggle('active');\nel.classList.contains('active'); // true/false`},
+  {lang:'js',title:'🌐 fetch API',desc:'Get data from an API.',code:`async function getData(url) {\n  try {\n    const res = await fetch(url);\n    if (!res.ok) throw new Error('Error');\n    const data = await res.json();\n    console.log(data);\n  } catch (err) { console.error(err); }\n}`},
+  {lang:'js',title:'📦 array methods',desc:'The four you\'ll use constantly.',code:`const nums = [1, 2, 3, 4, 5];\nnums.map(n => n * 2);           // [2,4,6,8,10]\nnums.filter(n => n > 2);        // [3,4,5]\nnums.find(n => n > 3);          // 4\nnums.reduce((s, n) => s + n, 0);// 15`},
+  {lang:'js',title:'🎨 template literals',desc:'Embed variables inside strings.',code:`const name = 'Macie';\nconst msg = \`Hello \${name}! 🌿\`;\n\nconst html = \`\n  <div class="card">\n    <h2>\${name}</h2>\n  </div>\n\`;`},
+  {lang:'js',title:'💾 localStorage',desc:'Save data that survives refresh.',code:`localStorage.setItem('theme', 'dark');\nlocalStorage.setItem('user', JSON.stringify({ name: 'Macie' }));\nconst theme = localStorage.getItem('theme');\nconst user = JSON.parse(localStorage.getItem('user'));\nlocalStorage.removeItem('theme');`},
+];
+
+let activeFilter = 'all';
+function filterSnips(lang, btn) { activeFilter = lang; document.querySelectorAll('.snip-filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); renderSnips(); }
+function renderSnips() {
+  const lib = document.getElementById('snip-library'); if (!lib) return;
+  const filtered = activeFilter === 'all' ? SNIPS : SNIPS.filter(s => s.lang === activeFilter);
+  lib.innerHTML = filtered.map((s, i) => `<div class="snip-lib-card"><div class="snip-lib-head"><div class="snip-lib-title">${s.title}</div><span class="snip-lang-badge lang-${s.lang}">${s.lang.toUpperCase()}</span></div><div class="snip-lib-desc">${s.desc}</div><div class="code-block" style="font-size:11px;line-height:1.7;">${escHTML(s.code)}</div><button class="copy-btn" onclick="copySnip(this,${i})">copy ↗</button></div>`).join('');
+}
+function escHTML(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/`/g,'&#96;'); }
+function copySnip(btn, idx) {
+  const filtered = activeFilter === 'all' ? SNIPS : SNIPS.filter(s => s.lang === activeFilter);
+  navigator.clipboard.writeText(filtered[idx].code).then(() => { btn.textContent='copied! ✓'; btn.classList.add('copied'); setTimeout(()=>{btn.textContent='copy ↗';btn.classList.remove('copied');},1800); }).catch(()=>{});
+}
+
+/* ────────── CALCULATOR ────────── */
+let calcExpr = '', calcHistory = [];
+function calcInput(v) { calcExpr += v; updateCalcDisplay(); }
+function calcAC() { calcExpr = ''; document.getElementById('calc-result').textContent = '0'; updateCalcDisplay(); }
+function calcBackspace() { calcExpr = calcExpr.slice(0,-1); updateCalcDisplay(); }
+function updateCalcDisplay() {
+  const exprEl = document.getElementById('calc-expr');
+  if (exprEl) exprEl.textContent = calcExpr.replace(/Math\.sqrt\(/g,'√(').replace(/Math\.PI/g,'π').replace(/Math\.E/g,'e');
+  try { if (calcExpr) { const v = Function('"use strict";return ('+calcExpr+')')(); if (isFinite(v)) { const fmt=Number.isInteger(v)?v:parseFloat(v.toFixed(8)); document.getElementById('calc-result').textContent=fmt.toLocaleString(); } } } catch {}
+}
+function calcEquals() {
+  try {
+    const v = Function('"use strict";return ('+calcExpr+')')();
+    if (isFinite(v)) {
+      const fmt=Number.isInteger(v)?v:parseFloat(v.toFixed(8));
+      const display=calcExpr.replace(/Math\.sqrt\(/g,'√(').replace(/Math\.PI/g,'π').replace(/Math\.E/g,'e');
+      calcHistory.unshift({expr:display,result:fmt.toLocaleString()});
+      if (calcHistory.length>20) calcHistory.pop();
+      renderCalcHistory();
+      document.getElementById('calc-result').textContent=fmt.toLocaleString();
+      document.getElementById('calc-expr').textContent=display+' =';
+      calcExpr=String(v);
+    }
+  } catch { document.getElementById('calc-result').textContent='error'; }
+}
+function renderCalcHistory() { const list=document.getElementById('calc-history-list'); if(!list)return; if(!calcHistory.length){list.innerHTML='<div style="font-size:12px;color:var(--br-l);padding:8px 0;">no calculations yet</div>';return;} list.innerHTML=calcHistory.map(h=>`<div class="history-item" onclick="calcExpr='${h.result.replace(/,/g,'')}';updateCalcDisplay()"><span>${h.expr}</span><span style="font-weight:700;color:var(--sage-d);">${h.result}</span></div>`).join(''); }
+
+/* ────────── INIT ────────── */
+function initPlayground() { buildItems(); updateFlex(); selectItem(0); renderSnips(); }
+function initEditor() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(ED_KEY));
+    if (saved) { document.getElementById('ed-html').value = saved.html || ED_DEFAULT.html; document.getElementById('ed-css').value = saved.css || ED_DEFAULT.css; document.getElementById('ed-js').value = saved.js || ED_DEFAULT.js; }
+    else { document.getElementById('ed-html').value = ED_DEFAULT.html; document.getElementById('ed-css').value = ED_DEFAULT.css; document.getElementById('ed-js').value = ED_DEFAULT.js; }
+  } catch { document.getElementById('ed-html').value = ED_DEFAULT.html; document.getElementById('ed-css').value = ED_DEFAULT.css; document.getElementById('ed-js').value = ED_DEFAULT.js; }
+  runCode();
+}
+
+/* ────────── EDITOR TAB KEY + FORMAT ────────── */
+function edTab(e) {
+  if (e.key !== 'Tab') return;
+  e.preventDefault();
+  const ta = e.target, s = ta.selectionStart, end = ta.selectionEnd;
+  ta.value = ta.value.slice(0, s) + '  ' + ta.value.slice(end);
+  ta.selectionStart = ta.selectionEnd = s + 2;
+}
+
+function formatCode() {
+  const ta = document.getElementById('ed-' + currentEdLang);
+  if (!ta) return;
+  const code = ta.value;
+  try {
+    if (currentEdLang === 'js' && window.js_beautify) ta.value = window.js_beautify(code, {indent_size:2,space_in_empty_paren:true});
+    else if (currentEdLang === 'css' && window.css_beautify) ta.value = window.css_beautify(code, {indent_size:2});
+    else if (currentEdLang === 'html' && window.html_beautify) ta.value = window.html_beautify(code, {indent_size:2,wrap_line_length:100});
+    else { ta.value = basicFormat(code); }
+  } catch { ta.value = basicFormat(code); }
+}
+function basicFormat(code) {
+  let indent = 0, out = '';
+  code.split('\n').forEach(line => {
+    const t = line.trim(); if (!t) { out += '\n'; return; }
+    if (t.match(/^<\//)) indent = Math.max(0, indent - 1);
+    out += '  '.repeat(indent) + t + '\n';
+    if (t.match(/^<[^\/!][^>]*[^\/]>/) && !t.match(/<\//)) indent++;
+  });
+  return out.trimEnd();
+}
+
+/* ────────── TRACKER CALENDAR ────────── */
+const TR_KEY = 'code-garden-tracker';
+const ACTIVITIES = [
+  { id:'cdx-html', label:'Codedex HTML', icon:'🌐', color:'#7BAE7F', text:'#3D5A40', bg:'#DDF0DA' },
+  { id:'cdx-css',  label:'Codedex CSS',  icon:'🎨', color:'#8FB8D8', text:'#1A4A6A', bg:'#D6EAF8' },
+  { id:'cdx-js',   label:'Codedex JS',   icon:'⚡', color:'#E8C97C', text:'#7A5A10', bg:'#FEF9E7' },
+  { id:'cdx-react',label:'Codedex React',icon:'⚛️', color:'#C4A7CB', text:'#5A2A6E', bg:'#EDE6F2' },
+  { id:'bootdev',  label:'Boot.dev',     icon:'🚀', color:'#C4A7CB', text:'#5A2A6E', bg:'#EDE6F2' },
+  { id:'python',   label:'Python',       icon:'🐍', color:'#E8A87C', text:'#7A3A10', bg:'#FAE9D8' },
+  { id:'art',      label:'Art / Drawing',icon:'🎨', color:'#D49898', text:'#7A2A2A', bg:'#F5E3E3' },
+  { id:'reading',  label:'Reading',      icon:'📖', color:'#B5C98E', text:'#3A5A10', bg:'#EBF5E0' },
+  { id:'review',   label:'Review notes', icon:'🔁', color:'#9EBDD4', text:'#1A4A6A', bg:'#D6EAF8' },
+  { id:'build',    label:'Build project',icon:'🏗️', color:'#C4B8AA', text:'#5A4A3A', bg:'#F0EAE0' },
+];
+
+let calYear = 2026, calMonth = 3; // 0-indexed month (3 = April)
+let dragChipId = null;
+
+function trGetData() { try { return JSON.parse(localStorage.getItem(TR_KEY)) || {}; } catch { return {}; } }
+function trSave(d) { try { localStorage.setItem(TR_KEY, JSON.stringify(d)); } catch {} }
+
+function initTracker() {
+  renderActivityPalette();
+  renderCalendar();
+  updateStreakCount();
+}
+
+function renderActivityPalette() {
+  const list = document.getElementById('activity-palette-list');
+  if (!list) return;
+  list.innerHTML = ACTIVITIES.map(a =>
+    `<div class="activity-chip" draggable="true" data-id="${a.id}"
+      style="background:${a.bg};color:${a.text};border-color:${a.color}20;"
+      ondragstart="onChipDragStart(event,'${a.id}')">
+      <div class="chip-dot" style="background:${a.color};"></div>${a.icon} ${a.label}
+    </div>`
+  ).join('');
+}
+
+function renderCalendar() {
+  const titleEl = document.getElementById('cal-title');
+  const grid = document.getElementById('cal-grid');
+  if (!titleEl || !grid) return;
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  titleEl.textContent = `${months[calMonth]} ${calYear}`;
+  const data = trGetData();
+  const today = new Date();
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const prevDays = new Date(calYear, calMonth, 0).getDate();
+  let cells = '';
+  // prev month padding
+  for (let i = firstDay - 1; i >= 0; i--) {
+    cells += `<div class="cal-day other-month"><div class="cal-day-num">${prevDays - i}</div></div>`;
+  }
+  // current month
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = `${calYear}-${calMonth}-${d}`;
+    const isToday = today.getFullYear()===calYear && today.getMonth()===calMonth && today.getDate()===d;
+    const chips = (data[key] || []).map(id => {
+      const a = ACTIVITIES.find(x => x.id === id);
+      return a ? `<button class="day-chip-sm" style="background:${a.bg};color:${a.text};" onclick="removeChip('${key}','${id}')" title="click to remove">${a.icon} ${a.label}</button>` : '';
+    }).join('');
+    cells += `<div class="cal-day${isToday?' today':''}"
+      ondragover="event.preventDefault();this.classList.add('drop-over')"
+      ondragleave="this.classList.remove('drop-over')"
+      ondrop="onDrop(event,'${key}',this)">
+      <div class="cal-day-num">${d}</div>
+      <div class="day-chips">${chips}</div>
+    </div>`;
+  }
+  // next month padding
+  const remaining = 42 - firstDay - daysInMonth;
+  for (let d = 1; d <= remaining; d++) {
+    cells += `<div class="cal-day other-month"><div class="cal-day-num">${d}</div></div>`;
+  }
+  grid.innerHTML = cells;
+}
+
+function onChipDragStart(e, id) { dragChipId = id; e.dataTransfer.effectAllowed = 'copy'; }
+
+function onDrop(e, key, el) {
+  e.preventDefault();
+  el.classList.remove('drop-over');
+  if (!dragChipId) return;
+  const data = trGetData();
+  if (!data[key]) data[key] = [];
+  if (!data[key].includes(dragChipId)) data[key].push(dragChipId);
+  trSave(data);
+  renderCalendar();
+  updateStreakCount();
+}
+
+function removeChip(key, id) {
+  const data = trGetData();
+  if (data[key]) data[key] = data[key].filter(x => x !== id);
+  trSave(data);
+  renderCalendar();
+  updateStreakCount();
+}
+
+function calPrev() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCalendar(); }
+function calNext() { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
+
+function updateStreakCount() {
+  const data = trGetData();
+  const today = new Date();
+  let streak = 0, d = new Date(today);
+  while (true) {
+    const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    if (data[key] && data[key].length > 0) { streak++; d.setDate(d.getDate() - 1); }
+    else break;
+  }
+  const monthTotal = Object.keys(data).filter(k => k.startsWith(`${calYear}-${calMonth}-`)).filter(k => data[k]?.length > 0).length;
+  const el = document.getElementById('tr-streak');
+  const si = document.getElementById('tr-sessions');
+  if (el) el.textContent = streak + (streak > 0 ? '🔥' : '');
+  if (si) si.textContent = `${monthTotal} active day${monthTotal !== 1 ? 's' : ''} this month`;
+}
+
+/* ────────── NOTEBOOK FONT + ZOOM ────────── */
+function applyNbStyle() {
+  const fam = document.getElementById('nb-font-fam')?.value || "'Caveat',cursive";
+  const size = document.getElementById('nb-font-size')?.value || 16;
+  const color = document.getElementById('nb-font-color')?.value || '#3A3228';
+  const sizeEl = document.getElementById('nb-fsize-val');
+  if (sizeEl) sizeEl.textContent = size + 'px';
+  ['sl-title','sl-body','sr-title','sr-body'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.style.fontFamily = fam; el.style.fontSize = size + 'px'; el.style.color = color; }
+  });
+}
+function applyZoom() {
+  const z = document.getElementById('nb-zoom')?.value || 80;
+  const el = document.getElementById('spread-scale-wrap');
+  const lbl = document.getElementById('nb-zoom-val');
+  if (el) el.style.transform = `scale(${z/100})`;
+  if (lbl) lbl.textContent = z + '%';
+}
+
+renderHabits();
+renderMonth();
+animateProgress();
+initPlayground();
+initEditor();
+initTracker();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js"></script>
+</body>
+</html>
